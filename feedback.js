@@ -1,10 +1,11 @@
 /* Widget de Feedback — Entrepreneurs Circle
-   Cero backend: arma un GitHub Issue pre-llenado en un repo privado y lo abre.
-   El usuario (con sesión de GitHub) solo confirma "Submit new issue". */
+   Envía dentro de la página: hace POST a un Cloudflare Worker que crea el GitHub Issue
+   con un token guardado del lado del servidor (nunca en el navegador).
+   Si el Worker falla, cae a un GitHub Issue pre-llenado como respaldo. */
 (function () {
-  var REPO = "jnieto-designli/ec-weekly-feedback";
+  var WORKER_URL = "https://ec-feedback.julian-nieto.workers.dev";
+  var REPO = "jnieto-designli/ec-weekly-feedback"; // solo para el respaldo
 
-  // Contexto por defecto según la página
   var path = location.pathname;
   var isIndex = path.endsWith("/") || path.endsWith("index.html");
   var defaultAbout = isIndex ? "Page" : "Report content";
@@ -25,8 +26,9 @@
     + "font:14px inherit;box-sizing:border-box}"
     + ".fbw-panel textarea{min-height:84px;resize:vertical}"
     + ".fbw-send{margin-top:14px;width:100%;background:#0a2540;color:#fff;border:none;border-radius:8px;padding:11px;"
-    + "font:600 14px inherit;cursor:pointer}.fbw-send:hover{background:#123a63}"
-    + ".fbw-ok{margin-top:10px;color:#0f7a3d;font-weight:600;display:none}"
+    + "font:600 14px inherit;cursor:pointer}.fbw-send:hover{background:#123a63}.fbw-send:disabled{opacity:.6;cursor:default}"
+    + ".fbw-msg-out{margin-top:10px;font-weight:600;display:none}"
+    + ".fbw-msg-out.ok{color:#0f7a3d}.fbw-msg-out.err{color:#c0392b}"
     + ".fbw-close{position:absolute;top:12px;right:14px;border:none;background:none;font-size:18px;cursor:pointer;color:#64707f}";
 
   var style = document.createElement("style");
@@ -50,37 +52,54 @@
     + '<select id="fbw-type"><option>Suggestion</option><option>Bug</option><option>Question</option></select>'
     + '<label>Message</label>'
     + '<textarea id="fbw-msg" placeholder="Describe your feedback..."></textarea>'
-    + '<button class="fbw-send" type="button">Open issue on GitHub →</button>'
-    + '<div class="fbw-ok">Opening GitHub to submit your feedback…</div>';
+    + '<button class="fbw-send" type="button">Send</button>'
+    + '<div class="fbw-msg-out"></div>';
 
   document.body.appendChild(btn);
   document.body.appendChild(panel);
 
+  var out = panel.querySelector(".fbw-msg-out");
+  var sendBtn = panel.querySelector(".fbw-send");
+
   btn.addEventListener("click", function () { panel.classList.toggle("open"); });
   panel.querySelector(".fbw-close").addEventListener("click", function () { panel.classList.remove("open"); });
 
-  panel.querySelector(".fbw-send").addEventListener("click", function () {
+  function show(kind, text) { out.className = "fbw-msg-out " + kind; out.textContent = text; out.style.display = "block"; }
+
+  sendBtn.addEventListener("click", function () {
     var about = panel.querySelector("#fbw-about").value;
     var type = panel.querySelector("#fbw-type").value;
     var msg = panel.querySelector("#fbw-msg").value.trim();
     if (!msg) { panel.querySelector("#fbw-msg").focus(); return; }
 
-    var typeLabel = type.toLowerCase();
-    var title = "[" + type + "] " + about + ": " + msg.slice(0, 60);
-    var body =
-        "**About:** " + about + "\n"
-      + "**Type:** " + type + "\n"
-      + "**Page:** " + location.href + "\n"
-      + "**Title:** " + (document.title || "") + "\n\n"
-      + "---\n\n" + msg;
+    var payload = { about: about, type: type, message: msg, page: location.href, title: document.title || "" };
 
-    var url = "https://github.com/" + REPO + "/issues/new"
-      + "?title=" + encodeURIComponent(title)
-      + "&body=" + encodeURIComponent(body)
-      + "&labels=" + encodeURIComponent("feedback," + typeLabel);
+    sendBtn.disabled = true;
+    show("ok", "Sending…");
 
-    window.open(url, "_blank");
-    panel.querySelector(".fbw-ok").style.display = "block";
-    setTimeout(function () { panel.classList.remove("open"); panel.querySelector(".fbw-ok").style.display = "none"; panel.querySelector("#fbw-msg").value = ""; }, 2500);
+    fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+    .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+    .then(function (res) {
+      if (res && res.ok) {
+        show("ok", "Thanks! Your feedback was sent ✓");
+        panel.querySelector("#fbw-msg").value = "";
+        setTimeout(function () { panel.classList.remove("open"); out.style.display = "none"; sendBtn.disabled = false; }, 2200);
+      } else {
+        throw new Error("worker");
+      }
+    })
+    .catch(function () {
+      // Respaldo: abrir GitHub con el issue pre-llenado
+      var title = "[" + type + "] " + about + ": " + msg.slice(0, 60);
+      var body = "**About:** " + about + "\n**Type:** " + type + "\n**Page:** " + location.href + "\n\n---\n\n" + msg;
+      var url = "https://github.com/" + REPO + "/issues/new?title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body) + "&labels=" + encodeURIComponent("feedback," + type.toLowerCase());
+      show("err", "Couldn't send automatically — opening GitHub as backup…");
+      window.open(url, "_blank");
+      sendBtn.disabled = false;
+    });
   });
 })();

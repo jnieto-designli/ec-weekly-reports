@@ -1,9 +1,21 @@
-/* Splash de intro: al cargar (primera vez de la sesión) muestra a Pepe,
-   crece desde el centro y se desvanece. Se desactiva si se reducen animaciones. */
+/* Splash de intro: Pepe crece desde el centro y se desvanece.
+   SOLO PARA JULIAN: se activa si la URL lleva "#pepe" (queda recordado en este navegador
+   vía localStorage). El jefe, con el link normal, nunca lo ve.
+   Se muestra una vez por sesión y respeta prefers-reduced-motion. */
 (function () {
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  // Solo la primera vez de la sesión (no en cada navegación interna)
+  // ¿Habilitado en este navegador?
+  var enabled = false;
+  try {
+    if (location.hash.toLowerCase().indexOf("pepe") !== -1) localStorage.setItem("ec_pepe", "1");
+    enabled = localStorage.getItem("ec_pepe") === "1";
+  } catch (e) {
+    enabled = location.hash.toLowerCase().indexOf("pepe") !== -1;
+  }
+  if (!enabled) return;
+
+  // Una vez por sesión (no en cada navegación interna)
   try {
     if (sessionStorage.getItem("ec_splash")) return;
     sessionStorage.setItem("ec_splash", "1");
@@ -17,9 +29,8 @@
     img.alt = "";
     overlay.appendChild(img);
     document.body.appendChild(overlay);
-
     img.addEventListener("animationend", function () { overlay.remove(); });
-    setTimeout(function () { if (overlay.parentNode) overlay.remove(); }, 2600); // respaldo
+    setTimeout(function () { if (overlay.parentNode) overlay.remove(); }, 2600);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);

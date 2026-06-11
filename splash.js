@@ -1,19 +1,12 @@
 /* Splash de intro: Pepe crece desde el centro y se desvanece.
-   SOLO PARA JULIAN: se activa si la URL lleva "#pepe" (queda recordado en este navegador
-   vía localStorage). El jefe, con el link normal, nunca lo ve.
+   SOLO PARA JULIAN: aparece ÚNICAMENTE si la URL lleva "#pepe" al final.
+   El link normal (sin #pepe) nunca lo muestra — ideal para el jefe.
    Se muestra en cada carga/refresh y respeta prefers-reduced-motion. */
 (function () {
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  // ¿Habilitado en este navegador?
-  var enabled = false;
-  try {
-    if (location.hash.toLowerCase().indexOf("pepe") !== -1) localStorage.setItem("ec_pepe", "1");
-    enabled = localStorage.getItem("ec_pepe") === "1";
-  } catch (e) {
-    enabled = location.hash.toLowerCase().indexOf("pepe") !== -1;
-  }
-  if (!enabled) return;
+  // Solo si la URL trae "#pepe" (sin memoria). El link normal queda limpio.
+  if (location.hash.toLowerCase().indexOf("pepe") === -1) return;
 
   // Se muestra en cada carga/refresh (solo para quien tiene #pepe activado).
 

@@ -39,3 +39,21 @@ body{
   }
   @keyframes fb-sheen{ to{ transform:translateX(120%); } }
 }
+
+/* ===== Splash de intro (Pepe): crece desde el centro y se desvanece ===== */
+#pepe-splash{
+  position:fixed; inset:0; z-index:100000; pointer-events:none;
+  display:flex; align-items:center; justify-content:center;
+}
+#pepe-splash img{ width:300px; height:auto; will-change:transform,opacity; }
+@media (prefers-reduced-motion: no-preference){
+  #pepe-splash img{ animation:pepe-zoom 1.7s cubic-bezier(.45,0,.2,1) forwards; }
+  @keyframes pepe-zoom{
+    0%{ transform:scale(.15); opacity:0; }
+    12%{ opacity:1; }
+    60%{ opacity:.85; }
+    100%{ transform:scale(9); opacity:0; }
+  }
+}
+@media (prefers-reduced-motion: reduce){ #pepe-splash{ display:none; } }
+

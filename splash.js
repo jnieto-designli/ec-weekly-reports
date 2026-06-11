@@ -1,7 +1,7 @@
 /* Splash de intro: Pepe crece desde el centro y se desvanece.
    SOLO PARA JULIAN: se activa si la URL lleva "#pepe" (queda recordado en este navegador
    vía localStorage). El jefe, con el link normal, nunca lo ve.
-   Se muestra una vez por sesión y respeta prefers-reduced-motion. */
+   Se muestra en cada carga/refresh y respeta prefers-reduced-motion. */
 (function () {
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -15,11 +15,7 @@
   }
   if (!enabled) return;
 
-  // Una vez por sesión (no en cada navegación interna)
-  try {
-    if (sessionStorage.getItem("ec_splash")) return;
-    sessionStorage.setItem("ec_splash", "1");
-  } catch (e) { /* sin storage: igual se muestra */ }
+  // Se muestra en cada carga/refresh (solo para quien tiene #pepe activado).
 
   function go() {
     var overlay = document.createElement("div");

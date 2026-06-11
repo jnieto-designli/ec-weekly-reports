@@ -29,20 +29,12 @@ body{
   /* Barras: 0% -> valor (anim.js fija el valor) */
   .fill{ transition:width 1.6s cubic-bezier(.2,.7,.2,1); }
 
-  /* Brillo que recorre cada barra */
+  /* Brillo tenue que recorre cada barra UNA sola vez (mientras se llena) */
   .track .fill::after{
     content:""; position:absolute; inset:0;
-    background:linear-gradient(90deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
+    background:linear-gradient(90deg, transparent 38%, rgba(255,255,255,.28) 50%, transparent 62%);
     transform:translateX(-100%);
-    animation:fb-sheen 3s ease-in-out infinite;
+    animation:fb-sheen 1.5s ease-out .4s 1 both;
   }
-  @keyframes fb-sheen{ 0%{transform:translateX(-100%)} 55%,100%{transform:translateX(120%)} }
-  /* Desfase para que no brillen todas a la vez */
-  .bar-row:nth-child(2) .fill::after{ animation-delay:.4s; }
-  .bar-row:nth-child(3) .fill::after{ animation-delay:.9s; }
-  .bar-row:nth-child(4) .fill::after{ animation-delay:1.3s; }
-  .bar-row:nth-child(5) .fill::after{ animation-delay:.6s; }
-  .bar-row:nth-child(6) .fill::after{ animation-delay:1.1s; }
-  .bar-row:nth-child(7) .fill::after{ animation-delay:.25s; }
-  .bar-row:nth-child(8) .fill::after{ animation-delay:1.5s; }
+  @keyframes fb-sheen{ to{ transform:translateX(120%); } }
 }

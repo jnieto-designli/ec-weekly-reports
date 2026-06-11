@@ -8,9 +8,8 @@
     document.querySelectorAll(".fill").forEach(function (f) {
       var target = f.style.width || getComputedStyle(f).width;
       f.style.width = "0%";
-      requestAnimationFrame(function () {
-        requestAnimationFrame(function () { f.style.width = target; });
-      });
+      void f.offsetWidth;          // fuerza reflow para que el 0% "cuente"
+      f.style.width = target;      // dispara la transición
     });
 
     // KPIs numéricos: cuentan de 0 al valor (solo enteros o porcentajes simples)

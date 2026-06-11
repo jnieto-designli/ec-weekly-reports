@@ -1,42 +1,22 @@
-/* "Aurora ejecutiva" — fondo con color, orbes flotantes, reveal y barras animadas.
-   Respeta prefers-reduced-motion: si el usuario reduce animaciones, queda estático. */
+/* "Aurora ejecutiva" — fondo suave + red de partículas (particles.js) + reveal +
+   barras que se llenan y con brillo que las recorre.
+   Respeta prefers-reduced-motion: si se reducen animaciones, queda estático. */
 
 body{
-  background:
-    radial-gradient(38vw 38vw at 88% 12%, rgba(0,163,224,.20), transparent 60%),
-    radial-gradient(40vw 40vw at 8% 90%, rgba(31,170,89,.16), transparent 62%),
-    linear-gradient(155deg,#e2ecfb 0%,#e7eef8 45%,#e0f1f5 100%);
-  background-attachment: fixed;
+  background: linear-gradient(160deg,#eef3fb 0%,#eef2f7 50%,#ebf3f6 100%) fixed;
   position: relative;
   overflow-x: hidden;
 }
-
-/* Orbes difuminados de color de marca, detrás del contenido — ahora más visibles */
-body::before, body::after{
-  content:""; position:fixed; border-radius:50%; filter:blur(54px); z-index:0; pointer-events:none;
-}
-body::before{
-  width:48vw; height:48vw; max-width:560px; max-height:560px;
-  background:radial-gradient(circle, rgba(0,163,224,.55), transparent 66%);
-  top:-8vw; left:-8vw;
-}
-body::after{
-  width:52vw; height:52vw; max-width:600px; max-height:600px;
-  background:radial-gradient(circle, rgba(11,87,160,.46), transparent 66%);
-  bottom:-12vw; right:-10vw;
-}
+#fb-particles{ position:fixed; inset:0; z-index:0; pointer-events:none; }
 .wrap{ position:relative; z-index:1; }
 
-@media (prefers-reduced-motion: no-preference){
-  /* Deriva más amplia + leve "respiro" (escala) */
-  body::before{ animation:fb-floatA 15s ease-in-out infinite; }
-  body::after{ animation:fb-floatB 18s ease-in-out infinite; }
-  @keyframes fb-floatA{ 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(120px,82px) scale(1.15)} }
-  @keyframes fb-floatB{ 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-105px,-62px) scale(1.12)} }
+/* Las barras necesitan recortar el brillo interno */
+.track .fill{ position:relative; overflow:hidden; }
 
-  /* Aparición en cascada de cabecera, resumen, KPIs y tarjetas */
+@media (prefers-reduced-motion: no-preference){
+  /* Aparición en cascada */
   header.top, .exec, .kpis, .card, h2.sec{ animation:fb-reveal .7s cubic-bezier(.2,.7,.2,1) both; }
-  @keyframes fb-reveal{ from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:none} }
+  @keyframes fb-reveal{ from{opacity:0; transform:translateY(22px)} to{opacity:1; transform:none} }
   header.top{ animation-delay:0s; }
   .exec{ animation-delay:.10s; }
   .kpis{ animation-delay:.20s; }
@@ -46,6 +26,23 @@ body::after{
   .src-grid .card:nth-child(3){ animation-delay:.32s; }
   .src-grid .card:nth-child(4){ animation-delay:.42s; }
 
-  /* Barras de progreso: 0% -> valor (anim.js fija el valor) */
+  /* Barras: 0% -> valor (anim.js fija el valor) */
   .fill{ transition:width 1.6s cubic-bezier(.2,.7,.2,1); }
+
+  /* Brillo que recorre cada barra */
+  .track .fill::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(90deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
+    transform:translateX(-100%);
+    animation:fb-sheen 3s ease-in-out infinite;
+  }
+  @keyframes fb-sheen{ 0%{transform:translateX(-100%)} 55%,100%{transform:translateX(120%)} }
+  /* Desfase para que no brillen todas a la vez */
+  .bar-row:nth-child(2) .fill::after{ animation-delay:.4s; }
+  .bar-row:nth-child(3) .fill::after{ animation-delay:.9s; }
+  .bar-row:nth-child(4) .fill::after{ animation-delay:1.3s; }
+  .bar-row:nth-child(5) .fill::after{ animation-delay:.6s; }
+  .bar-row:nth-child(6) .fill::after{ animation-delay:1.1s; }
+  .bar-row:nth-child(7) .fill::after{ animation-delay:.25s; }
+  .bar-row:nth-child(8) .fill::after{ animation-delay:1.5s; }
 }

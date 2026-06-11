@@ -26,8 +26,9 @@ body{
   .src-grid .card:nth-child(3){ animation-delay:.32s; }
   .src-grid .card:nth-child(4){ animation-delay:.42s; }
 
-  /* Barras: 0% -> valor (anim.js fija el valor) */
-  .fill{ transition:width 1.6s cubic-bezier(.2,.7,.2,1); }
+  /* Barras: crecen de 0 a su valor (CSS puro, fiable — no depende de JS) */
+  .fill{ animation: fb-grow 1.5s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes fb-grow{ from{ width:0; } }
 
   /* Brillo tenue que recorre cada barra UNA sola vez (mientras se llena) */
   .track .fill::after{

@@ -4,13 +4,7 @@
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   function run() {
-    // Barras de progreso: 0% -> valor objetivo (la transición CSS hace el resto)
-    document.querySelectorAll(".fill").forEach(function (f) {
-      var target = f.style.width || getComputedStyle(f).width;
-      f.style.width = "0%";
-      void f.offsetWidth;          // fuerza reflow para que el 0% "cuente"
-      f.style.width = target;      // dispara la transición
-    });
+    // (El llenado de las barras ahora es 100% CSS: ver @keyframes fb-grow en aurora.css)
 
     // KPIs numéricos: cuentan de 0 al valor (solo enteros o porcentajes simples)
     document.querySelectorAll(".kpi .n").forEach(function (n) {

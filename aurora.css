@@ -2,40 +2,50 @@
    Respeta prefers-reduced-motion: si el usuario reduce animaciones, queda estático. */
 
 body{
-  background: linear-gradient(160deg,#e9f0fb 0%,#eef2f7 45%,#e9f3f6 100%) fixed;
+  background:
+    radial-gradient(38vw 38vw at 88% 12%, rgba(0,163,224,.20), transparent 60%),
+    radial-gradient(40vw 40vw at 8% 90%, rgba(31,170,89,.16), transparent 62%),
+    linear-gradient(155deg,#e2ecfb 0%,#e7eef8 45%,#e0f1f5 100%);
+  background-attachment: fixed;
   position: relative;
   overflow-x: hidden;
 }
 
-/* Orbes difuminados de color de marca, detrás del contenido */
+/* Orbes difuminados de color de marca, detrás del contenido — ahora más visibles */
 body::before, body::after{
-  content:""; position:fixed; border-radius:50%; filter:blur(72px); z-index:0; pointer-events:none;
+  content:""; position:fixed; border-radius:50%; filter:blur(54px); z-index:0; pointer-events:none;
 }
 body::before{
-  width:46vw; height:46vw; max-width:520px; max-height:520px;
-  background:radial-gradient(circle, rgba(0,163,224,.28), transparent 70%);
+  width:48vw; height:48vw; max-width:560px; max-height:560px;
+  background:radial-gradient(circle, rgba(0,163,224,.55), transparent 66%);
   top:-8vw; left:-8vw;
 }
 body::after{
-  width:50vw; height:50vw; max-width:560px; max-height:560px;
-  background:radial-gradient(circle, rgba(10,37,64,.20), transparent 70%);
+  width:52vw; height:52vw; max-width:600px; max-height:600px;
+  background:radial-gradient(circle, rgba(11,87,160,.46), transparent 66%);
   bottom:-12vw; right:-10vw;
 }
 .wrap{ position:relative; z-index:1; }
 
 @media (prefers-reduced-motion: no-preference){
-  /* Deriva lenta de los orbes */
-  body::before{ animation:fb-floatA 19s ease-in-out infinite; }
-  body::after{ animation:fb-floatB 23s ease-in-out infinite; }
-  @keyframes fb-floatA{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(60px,42px)} }
-  @keyframes fb-floatB{ 0%,100%{transform:translate(0,0)} 50%{transform:translate(-52px,-34px)} }
+  /* Deriva más amplia + leve "respiro" (escala) */
+  body::before{ animation:fb-floatA 15s ease-in-out infinite; }
+  body::after{ animation:fb-floatB 18s ease-in-out infinite; }
+  @keyframes fb-floatA{ 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(120px,82px) scale(1.15)} }
+  @keyframes fb-floatB{ 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-105px,-62px) scale(1.12)} }
 
-  /* Aparición suave de cabecera, resumen, KPIs y tarjetas */
+  /* Aparición en cascada de cabecera, resumen, KPIs y tarjetas */
   header.top, .exec, .kpis, .card, h2.sec{ animation:fb-reveal .7s cubic-bezier(.2,.7,.2,1) both; }
-  .exec{ animation-delay:.04s; }
-  .kpis{ animation-delay:.10s; }
-  @keyframes fb-reveal{ from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none} }
+  @keyframes fb-reveal{ from{opacity:0; transform:translateY(24px)} to{opacity:1; transform:none} }
+  header.top{ animation-delay:0s; }
+  .exec{ animation-delay:.10s; }
+  .kpis{ animation-delay:.20s; }
+  h2.sec{ animation-delay:.05s; }
+  .card{ animation-delay:.12s; }
+  .src-grid .card:nth-child(2){ animation-delay:.22s; }
+  .src-grid .card:nth-child(3){ animation-delay:.32s; }
+  .src-grid .card:nth-child(4){ animation-delay:.42s; }
 
-  /* Las barras de progreso se llenan (anim.js fija 0 -> valor) */
-  .fill{ transition:width 1.4s cubic-bezier(.2,.7,.2,1); }
+  /* Barras de progreso: 0% -> valor (anim.js fija el valor) */
+  .fill{ transition:width 1.6s cubic-bezier(.2,.7,.2,1); }
 }

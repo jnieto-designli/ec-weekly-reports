@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>EC Weekly Report – Jun 5–12, 2026</title>
+  <style>
+    :root {
+      --navy: #0a2540;
+      --navy2: #123a63;
+      --accent: #00a3e0;
+      --accent2: #0079b8;
+      --green: #1faa59;
+      --amber: #e8a33d;
+      --red: #e2553d;
+      --bg: #eef2f7;
+      --card: #ffffff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* Bilingual */
+    body.lang-en .es { display: none; }
+    body.lang-es .en { display: none; }
+
+    /* Back link */
+    .back-link {
+      display: block;
+      background: var(--navy);
+      color: #a0c4e0;
+      padding: 8px 32px;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #fff; }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      color: #fff;
+      padding: 32px 40px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .header-left { display: flex; flex-direction: column; gap: 6px; }
+    .header-logo-row { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+    .header-logo-row img { height: 34px; }
+    .header-logo-row .brand { font-size: 14px; font-weight: 600; letter-spacing: 0.04em; color: #a8c8e8; }
+    .header h1 { font-size: 26px; font-weight: 700; line-height: 1.2; }
+    .header h2 { font-size: 14px; font-weight: 400; color: #a8c8e8; margin-top: 4px; }
+    .header .sprint-badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 13px;
+      margin-top: 8px;
+      display: inline-block;
+    }
+    .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+    .langtoggle { display: flex; gap: 6px; }
+    .langtoggle button {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #cce0ef;
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .langtoggle button.active {
+      background: #fff;
+      color: var(--navy);
+      border-color: #fff;
+    }
+    .langtoggle button:hover:not(.active) { background: rgba(255,255,255,0.22); color: #fff; }
+
+    /* Status badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .badge-on-track { background: #d1fae5; color: #065f46; }
+    .badge-at-risk  { background: #fef3c7; color: #92400e; }
+    .badge-blocked  { background: #fee2e2; color: #991b1b; }
+
+    /* Main */
+    .main { max-width: 1060px; margin: 0 auto; padding: 32px 24px; }
+
+    /* Section title */
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 28px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    /* Executive summary */
+    .exec { margin-bottom: 12px; }
+    .exec .exec-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+    .exec p { margin-bottom: 10px; color: var(--text); }
+    .exec ul { padding-left: 18px; margin-top: 6px; }
+    .exec ul li { margin-bottom: 6px; }
+
+    /* KPI row */
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+    .kpi {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px 14px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .kpi .n {
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--navy);
+    }
+    .kpi .n.green  { color: var(--green); }
+    .kpi .n.amber  { color: var(--amber); }
+    .kpi .n.red    { color: var(--red); }
+    .kpi .label { font-size: 12px; color: var(--muted); margin-top: 4px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* Progress bars */
+    .bars { display: flex; flex-direction: column; gap: 14px; }
+    .bar-row { display: flex; flex-direction: column; gap: 4px; }
+    .bar-row .bar-label { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; }
+    .bar-row .bar-label .pct { color: var(--muted); }
+    .track {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      border-radius: 99px;
+      transition: width 0.6s ease;
+    }
+    .fill.green { background: var(--green); }
+    .fill.amber { background: var(--amber); }
+    .fill.red   { background: var(--red); }
+
+    /* Table */
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    th { background: #f1f5f9; color: var(--navy); font-weight: 700; padding: 10px 12px; text-align: left; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 9px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .group-header { background: #f8fafc; }
+    .group-header td { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; padding: 8px 12px; color: var(--muted); border-bottom: 1px solid var(--border); }
+
+    /* Status pills */
+    .pill {
+      display: inline-block;
+      border-radius: 99px;
+      padding: 2px 10px;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .pill-done   { background: #d1fae5; color: #065f46; }
+    .pill-inprog { background: #fef3c7; color: #92400e; }
+    .pill-todo   { background: #e0e7ff; color: #3730a3; }
+    .pill-risk   { background: #fee2e2; color: #991b1b; }
+
+    /* Source chip */
+    .source-chip {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 1px 8px;
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* Findings grid */
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+    .finding-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .finding-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy2);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .finding-card ul { padding-left: 16px; }
+    .finding-card li { font-size: 13px; margin-bottom: 6px; color: var(--text); }
+
+    /* Deliveries */
+    .deliveries ul { padding-left: 18px; }
+    .deliveries li { margin-bottom: 8px; font-size: 14px; }
+    .jira-ref { font-size: 11.5px; color: var(--accent2); font-family: monospace; }
+
+    /* Blockers */
+    .blockers { display: flex; flex-direction: column; gap: 10px; }
+    .blocker-item {
+      display: flex;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+    }
+    .blocker-item.risk { border-left-color: var(--amber); }
+    .blocker-item .bicon { font-size: 18px; flex-shrink: 0; padding-top: 2px; }
+    .blocker-item .btxt { font-size: 13.5px; }
+    .blocker-item .btxt strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+    .thisweek { font-size: 11px; color: var(--accent); font-weight: 600; }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: #7a9bb5;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 640px) {
+      .header { padding: 20px; }
+      .header h1 { font-size: 20px; }
+      .main { padding: 16px; }
+    }
+  </style>
+  <link rel="stylesheet" href="aurora.css">
+</head>
+<body class="lang-en">
+
+<!-- Back to index -->
+<a href="index.html" class="back-link">
+  &larr; <span class="es">Volver al &iacute;ndice</span><span class="en">Back to index</span>
+</a>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <div class="header-left">
+    <div class="header-logo-row">
+      <img src="https://designli.co/hs-fs/hubfs/images/global%20components/logo/logoWhite-compressed.png?width=149&height=147&name=logoWhite-compressed.png" alt="Designli" height="34">
+      <span class="brand">Entrepreneurs Circle</span>
+    </div>
+    <h1>
+      <span class="es">Resumen Semanal de Avance</span>
+      <span class="en">Weekly Progress Report</span>
+    </h1>
+    <h2>
+      <span class="es">5 Jun &ndash; 12 Jun, 2026</span>
+      <span class="en">Jun 5 &ndash; Jun 12, 2026</span>
+    </h2>
+    <span class="sprint-badge">
+      &#127939; <span class="es">Sprint 2 &middot; Activo</span><span class="en">Sprint 2 &middot; Active</span>
+    </span>
+  </div>
+  <div class="header-right">
+    <div class="langtoggle">
+      <button data-l="en" class="active" onclick="setLang('en')">EN</button>
+      <button data-l="es" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ===== EXECUTIVE SUMMARY ===== -->
+  <div class="section-title">
+    &#128203;
+    <span class="es">Resumen Ejecutivo</span>
+    <span class="en">Executive Summary</span>
+  </div>
+
+  <div class="card exec">
+    <div class="exec-header">
+      <span class="status-badge badge-on-track">
+        <span class="es">&#10003; En Camino</span>
+        <span class="en">&#10003; On Track</span>
+      </span>
+    </div>
+
+    <p class="es">El equipo cerr&oacute; Sprint 1 exitosamente el 5 de junio (cliente Ali aprob&oacute; la revisi&oacute;n), arrang&oacute; Sprint 2 el d&iacute;a 9, y cierra esta semana con el <strong>74% del sprint completado</strong> (20 de 27 historias en Ready for UAT). El entorno de producci&oacute;n est&aacute; activo, PostHog integrado, y el objetivo de invitar usuarios el lunes 16 de junio s&oacute;lo depende de que Ali env&iacute;e la lista de empleados y actualice el plan de Auth0.</p>
+    <p class="en">The team successfully closed Sprint 1 on June 5 (client Ali approved the sprint review), launched Sprint 2 on June 9, and closes this week with <strong>74% of the sprint complete</strong> (20 of 27 stories at Ready for UAT). The production environment is live, PostHog is integrated, and the goal of inviting users on Monday June 16 depends only on Ali sending the employee list and upgrading the Auth0 plan.</p>
+
+    <ul>
+      <li>
+        <strong><span class="es">&#10003; Entregado:</span><span class="en">&#10003; Delivered:</span></strong>
+        <span class="es"> Producci&oacute;n activa &middot; PostHog integrado &middot; Landing page publicada &middot; Sprint 1 completado con cliente satisfecho.</span>
+        <span class="en"> Production live &middot; PostHog integrated &middot; Landing page published &middot; Sprint 1 completed with a satisfied client.</span>
+      </li>
+      <li>
+        <strong><span class="es">&#128260; En curso:</span><span class="en">&#128260; In progress:</span></strong>
+        <span class="es"> 7 historias restantes del Sprint 2 (brochure de empresa, pitch video/PDF, moneda SAR, login spinner bug, campos de Revenue).</span>
+        <span class="en"> 7 remaining Sprint 2 stories (company brochure, video/PDF pitch, SAR currency, login spinner bug, Revenue fields).</span>
+      </li>
+      <li>
+        <strong><span class="es">&#9888; Riesgo principal:</span><span class="en">&#9888; Main risk:</span></strong>
+        <span class="es"> Falla de carga de mapas en producci&oacute;n detectada hoy &mdash; Rodrigo investigando activamente.</span>
+        <span class="en"> Map loading failure in production detected today &mdash; Rodrigo actively investigating.</span>
+      </li>
+      <li>
+        <strong><span class="es">&#128276; Atenci&oacute;n:</span><span class="en">&#128276; Attention:</span></strong>
+        <span class="es"> 2 pendientes externos del cliente: lista de empleados + upgrade de Auth0 (ambos bloquean el lanzamiento del lunes).</span>
+        <span class="en"> 2 external client blockers: employee list + Auth0 upgrade (both block the Monday launch).</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ===== KPIs ===== -->
+  <div class="section-title">
+    &#128202;
+    <span class="es">Indicadores Clave &middot; Sprint 2</span>
+    <span class="en">Key Indicators &middot; Sprint 2</span>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="n green">74%</div>
+      <div class="label"><span class="es">Avance del Sprint</span><span class="en">Sprint Progress</span></div>
+    </div>
+    <div class="kpi">
+      <div class="n green">20/27</div>
+      <div class="label"><span class="es">Historias Listas</span><span class="en">Stories Done</span></div>
+    </div>
+    <div class="kpi">
+      <div class="n amber">7</div>
+      <div class="label"><span class="es">En Progreso</span><span class="en">In Progress</span></div>
+    </div>
+    <div class="kpi">
+      <div class="n">0</div>
+      <div class="label"><span class="es">Pendientes</span><span class="en">To Do</span></div>
+    </div>
+    <div class="kpi">
+      <div class="n amber">27/34</div>
+      <div class="label"><span class="es">Feedback Resuelto</span><span class="en">Feedback Resolved</span></div>
+    </div>
+    <div class="kpi">
+      <div class="n amber">
+        <span class="es">Lun 15</span><span class="en">Mon 16</span>
+      </div>
+      <div class="label"><span class="es">Pr&oacute;ximo Hito</span><span class="en">Next Milestone</span></div>
+    </div>
+  </div>
+
+  <!-- ===== PROGRESS BARS ===== -->
+  <div class="section-title">
+    &#128200;
+    <span class="es">Progreso por Frente de Trabajo</span>
+    <span class="en">Progress by Work Track</span>
+  </div>
+
+  <div class="card">
+    <div class="bars">
+      <div class="bar-row">
+        <div class="bar-label">
+          <span><span class="es">Sprint 2 &mdash; General (20 / 27 historias)</span><span class="en">Sprint 2 &mdash; Overall (20 / 27 stories)</span></span>
+          <span class="pct">74%</span>
+        </div>
+        <div class="track"><div class="fill green" style="width:74%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">
+          <span><span class="es">Feedback del cliente (27 / 34 items)</span><span class="en">Client feedback items (27 / 34)</span></span>
+          <span class="pct">79%</span>
+        </div>
+        <div class="track"><div class="fill green" style="width:79%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">
+          <span><span class="es">Admin Panel &mdash; Listados y flujos</span><span class="en">Admin Panel &mdash; Listings &amp; flows</span></span>
+          <span class="pct">74%</span>
+        </div>
+        <div class="track"><div class="fill green" style="width:74%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">
+          <span><span class="es">Landing Page</span><span class="en">Landing Page</span></span>
+          <span class="pct">100%</span>
+        </div>
+        <div class="track"><div class="fill green" style="width:100%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">
+          <span><span class="es">Infraestructura de Producci&oacute;n</span><span class="en">Production Infrastructure</span></span>
+          <span class="pct">100%</span>
+        </div>
+        <div class="track"><div class="fill green" style="width:100%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">
+          <span><span class="es">Localizaci&oacute;n / &Aacute;rabe</span><span class="en">Localization / Arabic</span></span>
+          <span class="pct">20%</span>
+        </div>
+        <div class="track"><div class="fill red" style="width:20%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== AGREED VS DONE TABLE ===== -->
+  <div class="section-title">
+    &#128193;
+    <span class="es">Lo Acordado vs. Lo Hecho</span>
+    <span class="en">Agreed vs. Done</span>
+  </div>
+
+  <div class="card table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th><span class="es">Compromiso / Historia</span><span class="en">Commitment / Story</span></th>
+          <th><span class="es">Responsable</span><span class="en">Owner</span></th>
+          <th><span class="es">Estado</span><span class="en">Status</span></th>
+          <th><span class="es">Fuente</span><span class="en">Source</span></th>
+          <th>Jira</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- DONE GROUP -->
+        <tr class="group-header">
+          <td colspan="5">&#10003; <span class="es">Hecho (Done / Ready for UAT)</span><span class="en">Done (Done / Ready for UAT)</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Entorno de producci&oacute;n configurado</span>
+            <span class="en">Production environment setup</span>
+            <span class="thisweek"> &#9733; <span class="es">esta semana</span><span class="en">this week</span></span>
+          </td>
+          <td>Andres Correa</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Slack</span></td>
+          <td><span class="jira-ref">ENTR-50</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">PostHog analytics integrado (landing + admin)</span>
+            <span class="en">PostHog analytics integrated (landing + admin)</span>
+            <span class="thisweek"> &#9733;</span>
+          </td>
+          <td>Andres Correa</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Gmail Jun 8</span></td>
+          <td><span class="jira-ref">ENTR-88</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Landing page publicada (waitlist / captura email)</span>
+            <span class="en">Landing page published (waitlist / email capture)</span>
+          </td>
+          <td>Andres Correa</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Slack</span></td>
+          <td><span class="jira-ref">ENTR-13</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Dashboard de m&eacute;tricas (conteos b&aacute;sicos + rango de fecha)</span>
+            <span class="en">Metrics dashboard (basic counts + date range)</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-9</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Log Activity: timestamp en hora local de Saudi Arabia + IP</span>
+            <span class="en">Log Activity: Saudi Arabia local timestamp + IP address</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Sprint Planning</span></td>
+          <td><span class="jira-ref">ENTR-81</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Edici&oacute;n completa de todos los campos de un listing</span>
+            <span class="en">Full edit capability for all listing fields and sections</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Slack</span></td>
+          <td><span class="jira-ref">ENTR-80</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Cambios consolidados del feedback de Ali (ronda 1)</span>
+            <span class="en">Consolidated changes from Ali's feedback (round 1)</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Basecamp</span></td>
+          <td><span class="jira-ref">ENTR-51</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Selector de pa&iacute;s con auto-detecci&oacute;n (empleados / compradores / vendedores)</span>
+            <span class="en">Country selector with auto-detection (employees / buyers / sellers)</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-71</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Separaci&oacute;n de Nombre Completo en nombre + apellido</span>
+            <span class="en">Split Full Name into first name + last name</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Gmail Jun 5</span></td>
+          <td><span class="jira-ref">ENTR-70</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Ocultar rol &ldquo;Client&rdquo; de la vista de Empleados</span>
+            <span class="en">Hide &ldquo;Client&rdquo; role from Employees view</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Gmail Jun 5</span></td>
+          <td><span class="jira-ref">ENTR-73</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">SPIKE + implementaci&oacute;n: pin de ubicaci&oacute;n en mapa</span>
+            <span class="en">SPIKE + implementation: &ldquo;Set pin location&rdquo; on map</span>
+          </td>
+          <td>Andres Correa / Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Gmail Jun 8</span></td>
+          <td><span class="jira-ref">ENTR-85 / ENTR-86</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">SPIKE: investigar edici&oacute;n de email en Auth0</span>
+            <span class="en">SPIKE: investigate Auth0 email editing options</span>
+          </td>
+          <td>Andres Correa</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira &middot; Gmail Jun 5</span></td>
+          <td><span class="jira-ref">ENTR-83</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Bug: timestamps incorrectos en Log Activity</span>
+            <span class="en">Bug: Log Activity timestamps displaying incorrectly</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-66</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Bug: rol &ldquo;Client account&rdquo; aparec&iacute;a incorrectamente en Admin</span>
+            <span class="en">Bug: &ldquo;Client account&rdquo; role shown incorrectly in Admin</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-65</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Campo Headline Price en creaci&oacute;n de listing</span>
+            <span class="en">Headline Price field in listing creation</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-79</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Auto-fill de nombre completo del vendedor en listing</span>
+            <span class="en">Auto-fill seller full name in listing form</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-90</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Captura de cantidad y condici&oacute;n por activo (Assets Only)</span>
+            <span class="en">Asset quantity and condition capture per asset (Assets Only)</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-91</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Vista de detalles completos de un listing</span>
+            <span class="en">Full listing details view (single page)</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-92</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Bloquear creaci&oacute;n de vendedor con email ya existente</span>
+            <span class="en">Block creating a seller with an already-registered email</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-done"><span class="es">Hecho</span><span class="en">Done</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-95</span></td>
+        </tr>
+
+        <!-- IN PROGRESS GROUP -->
+        <tr class="group-header">
+          <td colspan="5">&#128260; <span class="es">En Progreso (In Development / QA)</span><span class="en">In Progress (In Development / QA)</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Campo opcional de brochure de empresa en listings</span>
+            <span class="en">Optional company brochure field across listing Documents</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-inprog"><span class="es">En Dev</span><span class="en">In Dev</span></span></td>
+          <td><span class="source-chip">Jira &middot; Gmail Jun 9 &amp; 12</span></td>
+          <td><span class="jira-ref">ENTR-101</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Investment: pitch acepta video, PDF o PowerPoint</span>
+            <span class="en">Investment: pitch upload accepts video, PDF, or PowerPoint</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-inprog"><span class="es">En Dev</span><span class="en">In Dev</span></span></td>
+          <td><span class="source-chip">Jira &middot; Gmail Jun 9</span></td>
+          <td><span class="jira-ref">ENTR-100</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Investment: campos de Revenue condicionales seg&uacute;n rentabilidad</span>
+            <span class="en">Investment: conditional Revenue fields based on profitability</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-inprog"><span class="es">En Dev</span><span class="en">In Dev</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-98</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Indicador de moneda SAR en campos monetarios (reemplaza $)</span>
+            <span class="en">SAR currency indicator in monetary fields (replaces $)</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-inprog"><span class="es">QA</span><span class="en">QA</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-77 / ENTR-89</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Etiqueta &ldquo;Utilities per month&rdquo; (actualizaci&oacute;n de label)</span>
+            <span class="en">Update &ldquo;Utilities&rdquo; label to &ldquo;Utilities per month&rdquo;</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-inprog"><span class="es">En Dev</span><span class="en">In Dev</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-78</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Bug: spinner del bot&oacute;n de login renderiza incorrectamente</span>
+            <span class="en">Bug: login button loading spinner renders incorrectly</span>
+          </td>
+          <td>Rodrigo Serrano</td>
+          <td><span class="pill pill-inprog"><span class="es">En Dev</span><span class="en">In Dev</span></span></td>
+          <td><span class="source-chip">Jira</span></td>
+          <td><span class="jira-ref">ENTR-64</span></td>
+        </tr>
+
+        <!-- PENDING / EXTERNAL GROUP -->
+        <tr class="group-header">
+          <td colspan="5">&#8987; <span class="es">Pendiente / Externo (no en Jira)</span><span class="en">Pending / External (not in Jira)</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Ali: enviar lista de empleados para onboarding de producci&oacute;n</span>
+            <span class="en">Ali: send employee list for production onboarding</span>
+          </td>
+          <td>Ali Alriyahi (Client)</td>
+          <td><span class="pill pill-risk"><span class="es">Bloqueante</span><span class="en">Blocking</span></span></td>
+          <td><span class="source-chip">Basecamp Jun 11</span></td>
+          <td>&mdash;</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Ali: upgrade Auth0 a plan Essentials ($35/mes, 500 MAU)</span>
+            <span class="en">Ali: upgrade Auth0 to Essentials plan ($35/mo, 500 MAU)</span>
+          </td>
+          <td>Ali Alriyahi (Client)</td>
+          <td><span class="pill pill-risk"><span class="es">Bloqueante</span><span class="en">Blocking</span></span></td>
+          <td><span class="source-chip">Basecamp Jun 10</span></td>
+          <td>&mdash;</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">Traducci&oacute;n &aacute;rabe de la interfaz (admin panel + landing)</span>
+            <span class="en">Arabic interface translation (admin panel + landing)</span>
+          </td>
+          <td>Equipo / Team</td>
+          <td><span class="pill pill-todo"><span class="es">Pendiente</span><span class="en">Pending</span></span></td>
+          <td><span class="source-chip">Gmail Sprint Planning Jun 9</span></td>
+          <td>&mdash;</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="es">3 gr&aacute;ficas faltantes en dashboard de m&eacute;tricas</span>
+            <span class="en">3 missing charts in metrics dashboard</span>
+          </td>
+          <td>Equipo / Team</td>
+          <td><span class="pill pill-todo"><span class="es">Pendiente</span><span class="en">Pending</span></span></td>
+          <td><span class="source-chip">Slack &middot; Gmail Sprint Planning</span></td>
+          <td>&mdash;</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===== DELIVERIES ===== -->
+  <div class="section-title">
+    &#128640;
+    <span class="es">Lo que se Entreg&oacute; esta Semana</span>
+    <span class="en">What Was Delivered This Week</span>
+  </div>
+
+  <div class="card deliveries">
+    <ul>
+      <li>
+        <strong><span class="es">Sprint 1 cerrado con &eacute;xito &mdash; cliente muy satisfecho.</span><span class="en">Sprint 1 closed successfully &mdash; client very satisfied.</span></strong>
+        <span class="es"> Sprint Review el 5 de junio con Ali y Raed. El cliente felicit&oacute; a Rodrigo y Andr&eacute;s por sus respuestas t&eacute;cnicas. <span class="source-chip">Slack #ec-vibes Jun 5</span></span>
+        <span class="en"> Sprint Review on June 5 with Ali and Raed. Client praised Rodrigo and Andr&eacute;s for their technical responses. <span class="source-chip">Slack #ec-vibes Jun 5</span></span>
+      </li>
+      <li>
+        <strong><span class="es">Entorno de producci&oacute;n activo con PostHog confirmado.</span><span class="en">Production environment live with PostHog confirmed.</span></strong>
+        <span class="es"> Landing page y admin panel desplegados en prod. PostHog capturando datos de registro. <span class="jira-ref">ENTR-50 &middot; ENTR-88 &middot; ENTR-13</span></span>
+        <span class="en"> Landing page and admin panel deployed to prod. PostHog capturing registration data. <span class="jira-ref">ENTR-50 &middot; ENTR-88 &middot; ENTR-13</span></span>
+      </li>
+      <li>
+        <strong><span class="es">Sprint Planning con cliente el 9 de junio &mdash; backlog validado.</span><span class="en">Sprint Planning with client on June 9 &mdash; backlog validated.</span></strong>
+        <span class="es"> Ali y Raed participaron. Decisiones clave: formateo financiero con comas americanas, brochure opcional, pitch en video/PDF, implementar traducci&oacute;n &aacute;rabe. <span class="source-chip">Gmail Sprint Planning Jun 9</span></span>
+        <span class="en"> Ali and Raed participated. Key decisions: US comma financial formatting, optional brochure field, video/PDF pitch, implement Arabic translation. <span class="source-chip">Gmail Sprint Planning Jun 9</span></span>
+      </li>
+      <li>
+        <strong><span class="es">20 de 27 historias del Sprint 2 completadas (74%).</span><span class="en">20 of 27 Sprint 2 stories completed (74%).</span></strong>
+        <span class="es"> Incluye edici&oacute;n de listings, Log Activity refinado, split de nombres, selector de pa&iacute;s, pin de mapa implementado, bugs corregidos, y feedback de Ali procesado. <span class="jira-ref">ENTR-51, 65, 66, 70, 71, 73, 79, 80, 81, 83, 85, 86, 88, 90, 91, 92, 95 + m&aacute;s</span></span>
+        <span class="en"> Includes listing editing, refined Log Activity, name split, country selector, map pin implemented, bugs fixed, and Ali's feedback processed. <span class="jira-ref">ENTR-51, 65, 66, 70, 71, 73, 79, 80, 81, 83, 85, 86, 88, 90, 91, 92, 95 + more</span></span>
+      </li>
+      <li>
+        <strong><span class="es">Reuni&oacute;n de arquitectura m&oacute;vil (5 jun).</span><span class="en">Mobile architecture meeting (Jun 5).</span></strong>
+        <span class="es"> Con Rodrigo y Walter Ayala. Se defini&oacute; la arquitectura del m&oacute;dulo mobile para Sprint 3+. <span class="source-chip">Gmail Mobile Architecture EC</span></span>
+        <span class="en"> With Rodrigo and Walter Ayala. Mobile module architecture for Sprint 3+ defined. <span class="source-chip">Gmail Mobile Architecture EC</span></span>
+      </li>
+      <li>
+        <strong><span class="es">Aclaraci&oacute;n de costos de Auth0 gestionada proactivamente.</span><span class="en">Auth0 cost clarification handled proactively.</span></strong>
+        <span class="es"> Julian comunic&oacute; el costo a Ali antes de que fuera un problema. Felix reconoci&oacute; que evit&oacute; un posible problema de confianza con el cliente. <span class="source-chip">Slack #ec-vibes Jun 11 &middot; Basecamp Jun 10</span></span>
+        <span class="en"> Julian communicated the cost to Ali before it became an issue. Felix acknowledged it averted a potential client trust problem. <span class="source-chip">Slack #ec-vibes Jun 11 &middot; Basecamp Jun 10</span></span>
+      </li>
+      <li>
+        <strong><span class="es">27 de 34 items del feedback de Ali resueltos (79%).</span><span class="en">27 of 34 Ali feedback items resolved (79%).</span></strong>
+        <span class="es"> Solo 7 restantes; 3 de ellos son cambios de texto &mdash; sin complejidad t&eacute;cnica. <span class="source-chip">Slack #ec-vibes Jun 11</span></span>
+        <span class="en"> Only 7 remaining; 3 of them are text-only changes &mdash; no technical complexity. <span class="source-chip">Slack #ec-vibes Jun 11</span></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ===== FINDINGS BY SOURCE ===== -->
+  <div class="section-title">
+    &#128269;
+    <span class="es">Hallazgos por Fuente</span>
+    <span class="en">Findings by Source</span>
+  </div>
+
+  <div class="findings-grid">
+
+    <div class="finding-card">
+      <h4>&#128204; Basecamp</h4>
+      <ul>
+        <li>
+          <strong class="es">Jun 11 &mdash; &ldquo;Production update &amp; employee list request&rdquo; a Ali:</strong>
+          <strong class="en">Jun 11 &mdash; &ldquo;Production update &amp; employee list request&rdquo; to Ali:</strong>
+          <span class="es"> Prod listo, meta de invitar usuarios el lunes, necesitan la lista de empleados urgente. Empleados tendr&aacute;n acceso admin completo hasta que se construya el m&oacute;dulo de roles (mes 2). Pregunta sobre 2 usuarios existentes: Nura Alriyahi y Tala Salem.</span>
+          <span class="en"> Prod ready, goal to invite users Monday, urgent need for employee list. Employees will have full admin access until role module is built (month 2). Question about 2 existing users: Nura Alriyahi and Tala Salem.</span>
+        </li>
+        <li>
+          <strong class="es">Jun 10 &mdash; &ldquo;Auth0 production setup &mdash; plan upgrade needed&rdquo; a Ali:</strong>
+          <strong class="en">Jun 10 &mdash; &ldquo;Auth0 production setup &mdash; plan upgrade needed&rdquo; to Ali:</strong>
+          <span class="es"> Plan Essentials $35/mes, hasta 500 MAU. Ali debe hacer el upgrade desde su cuenta. Una vez hecho, Andr&eacute;s termina de provisionar prod.</span>
+          <span class="en"> Essentials plan $35/mo, up to 500 MAU. Ali must upgrade from his account. Once done, Andr&eacute;s will finish provisioning prod.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="finding-card">
+      <h4>&#128172; Slack (#ec-vibes)</h4>
+      <ul>
+        <li>
+          <strong class="es">Jun 11 &mdash; Felix (EOW check-in):</strong>
+          <strong class="en">Jun 11 &mdash; Felix (EOW check-in):</strong>
+          <span class="es"> 7 d&iacute;as al hito. Siguiente meta: prod completo + flujos EOD Jun 12 + usuarios invitados el lunes. Felicit&oacute; a Julian por la gesti&oacute;n de Auth0.</span>
+          <span class="en"> 7 days to milestone. Next goal: prod complete + all flows EOD Jun 12 + users invited Monday. Praised Julian for Auth0 handling.</span>
+        </li>
+        <li>
+          <strong class="es">Jun 11 &mdash; Julian:</strong>
+          <strong class="en">Jun 11 &mdash; Julian:</strong>
+          <span class="es"> Prod lista, landing y admin panel operativos, 7/34 feedback pendientes (3 s&oacute;lo texto).</span>
+          <span class="en"> Prod ready, landing and admin panel live, 7/34 feedback items pending (3 text-only).</span>
+        </li>
+        <li>
+          <strong class="es">Jun 9 &mdash; Keith / Julian:</strong>
+          <strong class="en">Jun 9 &mdash; Keith / Julian:</strong>
+          <span class="es"> Keith pregunta si se puede terminar antes del 19 de junio con metodolog&iacute;a vibe-code. Julian confirma: objetivo es MVP scope completo en prod el martes 16.</span>
+          <span class="en"> Keith asks if we can finish before June 19 with vibe-code approach. Julian confirms: goal is full MVP scope in prod by Tuesday June 16.</span>
+        </li>
+        <li>
+          <strong class="es">Jun 5 &mdash; Julian:</strong>
+          <strong class="en">Jun 5 &mdash; Julian:</strong>
+          <span class="es"> Sprint review exitoso. Cliente muy feliz. Rodrigo y Andr&eacute;s felicitados como &ldquo;rockstars&rdquo;.</span>
+          <span class="en"> Successful sprint review. Client very happy. Rodrigo and Andr&eacute;s praised as &ldquo;rockstars&rdquo;.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="finding-card">
+      <h4>&#128231; Gmail / Reuniones</h4>
+      <ul>
+        <li>
+          <strong class="es">Sprint Review (Jun 5):</strong>
+          <strong class="en">Sprint Review (Jun 5):</strong>
+          <span class="es"> 90% de avance en auth, gesti&oacute;n de usuarios, panel admin. Infra operativa. Cliente satisfecho. Acuerdos: registrar condici&oacute;n de activos como proceso independiente; posponer &ldquo;Tailored Opportunities&rdquo;.</span>
+          <span class="en"> 90% progress on auth, user management, admin panel. Infra operational. Client satisfied. Agreements: log each asset condition as independent process; defer &ldquo;Tailored Opportunities&rdquo;.</span>
+        </li>
+        <li>
+          <strong class="es">Daily EC (Jun 8):</strong>
+          <strong class="en">Daily EC (Jun 8):</strong>
+          <span class="es"> PostHog centraliza datos de landing. Separaci&oacute;n de campos de usuario en backend acordada como tarea independiente. Investigaci&oacute;n de mapas requerida para unificar web/mobile.</span>
+          <span class="en"> PostHog centralizes landing data. Backend user field separation agreed as independent task. Maps research required to unify web/mobile approach.</span>
+        </li>
+        <li>
+          <strong class="es">Sprint Planning (Jun 9):</strong>
+          <strong class="en">Sprint Planning (Jun 9):</strong>
+          <span class="es"> Sprint 1 completo. Sprint 2 acordado: formateo financiero US, brochure opcional, view button en listings, pitch video/PDF, campo de contacto renombrado, traducci&oacute;n &aacute;rabe, 3 gr&aacute;ficas, sync de timezone en logs.</span>
+          <span class="en"> Sprint 1 complete. Sprint 2 agreed: US financial formatting, optional brochure, listings view button, video/PDF pitch, contact field rename, Arabic translation, 3 charts, timezone sync in logs.</span>
+        </li>
+        <li>
+          <strong class="es">Daily EC (Jun 12, hoy):</strong>
+          <strong class="en">Daily EC (Jun 12, today):</strong>
+          <span class="es"> Prod operativa, PostHog confirmado. <strong>Problema detectado: falla de carga de mapas</strong> en full business, location y assets. M&uacute;ltiples ubicaciones pospuestas. Brochure corporativo a&ntilde;adido a adquisiciones.</span>
+          <span class="en"> Prod operational, PostHog confirmed. <strong>Issue detected: map loading failure</strong> in full business, location, and assets. Multiple locations postponed. Corporate brochure added to acquisitions section.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="finding-card">
+      <h4>&#127919; Jira &mdash; Sprint 2</h4>
+      <ul>
+        <li>
+          <strong class="es">27 historias en el sprint activo.</strong>
+          <strong class="en">27 stories in the active sprint.</strong>
+          <span class="es"> 20 en Ready for UAT (74%) &middot; 5 en In Development &middot; 2 en IN QA &middot; 0 en backlog.</span>
+          <span class="en"> 20 at Ready for UAT (74%) &middot; 5 In Development &middot; 2 IN QA &middot; 0 in backlog.</span>
+        </li>
+        <li>
+          <strong class="es">Responsable principal:</strong>
+          <strong class="en">Primary owner:</strong>
+          <span class="es"> <strong>Rodrigo Serrano</strong> (frontend / admin panel). Andr&eacute;s Correa en infraestructura, PostHog y SPIKEs.</span>
+          <span class="en"> <strong>Rodrigo Serrano</strong> (frontend / admin panel). Andr&eacute;s Correa on infra, PostHog, and SPIKEs.</span>
+        </li>
+        <li>
+          <span class="es">Sprint iniciado Jun 9. Todas las historias se actualizaron esta semana. Nombre del sprint inferido de notas de reuni&oacute;n (la API no devuelve el campo sprint en esta consulta).</span>
+          <span class="en">Sprint started Jun 9. All stories updated this week. Sprint name inferred from meeting notes (API did not return sprint field in this query).</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ===== BLOCKERS / RISKS ===== -->
+  <div class="section-title">
+    &#9888;
+    <span class="es">Pendientes &middot; Bloqueos &middot; Riesgos</span>
+    <span class="en">Pending &middot; Blockers &middot; Risks</span>
+  </div>
+
+  <div class="blockers">
+
+    <div class="blocker-item">
+      <div class="bicon">&#128308;</div>
+      <div class="btxt">
+        <strong>
+          <span class="es">Lista de empleados no recibida de Ali &mdash; bloquea lanzamiento del lunes</span>
+          <span class="en">Employee list not received from Ali &mdash; blocks Monday launch</span>
+        </strong>
+        <span class="es">Julian envi&oacute; mensaje el 11 de junio solicitando la lista urgentemente. Sin ella, no se puede completar la invitaci&oacute;n de usuarios el lunes 16 de junio. Recomendaci&oacute;n: hacer follow-up hoy si a&uacute;n no llega.</span>
+        <span class="en">Julian messaged Ali on June 11 requesting the list urgently. Without it, the Monday June 16 user invitation cannot be completed. Recommendation: follow up today if not received.</span>
+        <br><span class="source-chip">Basecamp Jun 11</span>
+      </div>
+    </div>
+
+    <div class="blocker-item">
+      <div class="bicon">&#128308;</div>
+      <div class="btxt">
+        <strong>
+          <span class="es">Upgrade de Auth0 pendiente del cliente &mdash; bloquea provisi&oacute;n completa de prod</span>
+          <span class="en">Auth0 upgrade pending from client &mdash; blocks full production provisioning</span>
+        </strong>
+        <span class="es">Se necesita plan Essentials ($35/mes) para hasta 500 MAU. Ali debe hacerlo desde su cuenta. Andr&eacute;s est&aacute; en espera para terminar de provisionar la infraestructura.</span>
+        <span class="en">Essentials plan ($35/mo) needed for up to 500 MAU. Ali must do it from his account. Andr&eacute;s is on standby to finish provisioning infrastructure once done.</span>
+        <br><span class="source-chip">Basecamp Jun 10</span>
+      </div>
+    </div>
+
+    <div class="blocker-item risk">
+      <div class="bicon">&#128993;</div>
+      <div class="btxt">
+        <strong>
+          <span class="es">Falla de carga de mapas en producci&oacute;n (full business, location, assets)</span>
+          <span class="en">Map loading failure in production (full business, location, assets sections)</span>
+        </strong>
+        <span class="es">Detectada hoy 12 de junio. Rodrigo investiga activamente. Si no se resuelve hoy, afecta los flujos completos de listing antes del lanzamiento del lunes.</span>
+        <span class="en">Detected today June 12. Rodrigo actively investigating. If not resolved today, it affects complete listing flows before Monday launch.</span>
+        <br><span class="source-chip">Gmail Daily EC Jun 12</span>
+      </div>
+    </div>
+
+    <div class="blocker-item risk">
+      <div class="bicon">&#128993;</div>
+      <div class="btxt">
+        <strong>
+          <span class="es">7 items de feedback pendientes &mdash; meta: cerrar EOD hoy (Jun 12)</span>
+          <span class="en">7 feedback items pending &mdash; goal: close EOD today (Jun 12)</span>
+        </strong>
+        <span class="es">27/34 resueltos. Los 7 restantes deben cerrarse hoy seg&uacute;n el plan acordado con Felix en Slack. 3 de ellos son solo cambios de texto &mdash; bajo riesgo t&eacute;cnico.</span>
+        <span class="en">27/34 resolved. The remaining 7 must close today per the plan agreed with Felix on Slack. 3 of them are text-only changes &mdash; low technical risk.</span>
+        <br><span class="source-chip">Slack #ec-vibes Jun 11</span>
+      </div>
+    </div>
+
+    <div class="blocker-item risk">
+      <div class="bicon">&#128993;</div>
+      <div class="btxt">
+        <strong>
+          <span class="es">Implementaci&oacute;n de mapas web/mobile a&uacute;n por definir (SPIKE)</span>
+          <span class="en">Web/mobile maps implementation still to be defined (SPIKE)</span>
+        </strong>
+        <span class="es">Rodrigo debe investigar si se requiere un SDK espec&iacute;fico para AWS Location Service. La precisi&oacute;n de geolocalizaci&oacute;n es cr&iacute;tica para el rendimiento del portal (confirmado en Sprint Review Jun 5).</span>
+        <span class="en">Rodrigo must investigate whether a specific SDK is required for AWS Location Service. Geolocation accuracy is critical for portal performance (confirmed in Sprint Review Jun 5).</span>
+        <br><span class="source-chip">Gmail Daily Jun 8 &middot; Sprint Review Jun 5</span>
+      </div>
+    </div>
+
+    <div class="blocker-item risk">
+      <div class="bicon">&#128993;</div>
+      <div class="btxt">
+        <strong>
+          <span class="es">Localizaci&oacute;n &aacute;rabe no iniciada &mdash; riesgo para hito de mes 1</span>
+          <span class="en">Arabic localization not started &mdash; risk to month 1 milestone</span>
+        </strong>
+        <span class="es">Acordada en Sprint Planning del 9 de junio pero sin historias activas en Jira. Ali espera la traducci&oacute;n &aacute;rabe de la landing y el admin panel como parte del alcance del mes 1.</span>
+        <span class="en">Agreed in Sprint Planning June 9 but no active stories in Jira. Ali expects Arabic translation of landing and admin panel as part of month 1 scope.</span>
+        <br><span class="source-chip">Gmail Sprint Planning Jun 9</span>
+      </div>
+    </div>
+
+    <div class="blocker-item risk">
+      <div class="bicon">&#128993;</div>
+      <div class="btxt">
+        <strong>
+          <span class="es">3 gr&aacute;ficas del dashboard de m&eacute;tricas a&uacute;n pendientes</span>
+          <span class="en">3 missing metrics dashboard charts still pending</span>
+        </strong>
+        <span class="es">Acordadas en Sprint Planning. Sin historia activa en Jira. Requieren revisi&oacute;n de dise&ntilde;o final antes de implementar. Mencionadas por Stefhanie en la reuni&oacute;n del Daily Jun 8.</span>
+        <span class="en">Agreed in Sprint Planning. No active story in Jira yet. Require final design review before implementation. Mentioned by Stefhanie in the Daily meeting Jun 8.</span>
+        <br><span class="source-chip">Gmail Sprint Planning &middot; Daily Jun 8</span>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /main -->
+
+<footer>
+  <strong style="color:#fff">Designli</strong> &nbsp;&middot;&nbsp;
+  <span class="es">Generado el 12 de junio de 2026</span>
+  <span class="en">Generated on June 12, 2026</span>
+  &nbsp;&middot;&nbsp; Entrepreneurs Circle
+</footer>
+
+<script src="particles.js"></script>
+<script src="anim.js"></script>
+<script>
+  function setLang(l) {
+    document.body.className = 'lang-' + l;
+    document.documentElement.lang = l;
+    document.querySelectorAll('.langtoggle button').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.l === l);
+    });
+  }
+</script>
+<script src="feedback.js"></script>
+</body>
+</html>

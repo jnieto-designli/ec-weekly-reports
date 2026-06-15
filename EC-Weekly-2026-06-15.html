@@ -67,22 +67,20 @@
   .chip.done{background:#dcf5e6;color:#0f7a3d}
   .chip.prog{background:#fbeccd;color:#9a6212}
   .chip.todo{background:#fde3dd;color:#a23824}
-  .chip.defer{background:#ececec;color:#555}
   table{width:100%;border-collapse:collapse;font-size:14px}
   th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
   th{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
   tr:nth-child(even) td{background:#fafbfe}
   .ref{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--accent2);white-space:nowrap}
-  .new-tag{font-size:10px;font-weight:700;background:#e7f7ed;color:#0f7a3d;padding:1px 7px;border-radius:99px;vertical-align:middle;margin-left:6px;white-space:nowrap}
 
   ul.clean{margin:6px 0 0;padding-left:20px} ul.clean li{margin:5px 0}
-  .tag{font-size:11px;color:var(--accent2);font-weight:700;letter-spacing:.5px}
+  .tag{font-size:11px;color:var(--accent2);font-weight:700;letter-spacing:.5px;margin-left:4px}
   .risk{border-left:4px solid var(--red);padding-left:14px;margin:10px 0}
   .win{border-left:4px solid var(--green);padding-left:14px;margin:10px 0}
   .resolved{border-left:4px solid var(--muted);padding-left:14px;margin:10px 0;opacity:.75}
+  .upcoming{border-left:4px solid var(--amber);padding-left:14px;margin:10px 0}
   .ext-done{color:var(--green);font-weight:700}
   .ext-pending{color:var(--amber);font-weight:700}
-  .next-step{border-left:4px solid var(--accent);padding-left:14px;margin:10px 0}
   footer{color:var(--muted);font-size:12px;text-align:center;margin-top:30px}
   @media(max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}}
 </style>
@@ -117,18 +115,18 @@
   <!-- ============ RESUMEN EJECUTIVO / EXECUTIVE SUMMARY ============ -->
   <div class="exec">
     <h2><span class="es">Resumen Ejecutivo</span><span class="en">Executive Summary</span></h2>
-    <span class="status"><span class="es">&#9679; En camino &#8212; lanzamiento lunes 16 de junio</span><span class="en">&#9679; On track &#8212; production launch Monday Jun 16</span></span>
-    <p class="es">El Sprint 2 cierra al <b>96% (27 de 28 historias en Ready for UAT)</b>. Los 6 ítems que estaban en progreso el 12 jun <b>se completaron ese mismo día</b>. La falla de carga de mapas en producción fue detectada y <b>resuelta el mismo 12 jun</b> por Andrés. El entorno de producción está completamente listo para el onboarding del lunes 16 con Ali, Sami y Raed. El daily de hoy (15 jun) marcó el inicio de la planificación del Mes 2: soporte multi-ubicación, actualizaciones de landing y pasarelas de pago nativas.</p>
-    <p class="en">Sprint 2 closes at <b>96% (27 of 28 stories in Ready for UAT)</b>. The 6 items that were still in progress on Jun 12 <b>completed that same day</b>. The map loading failure in production was detected and <b>resolved on Jun 12</b> by Andrés. Production is fully ready for Monday Jun 16 onboarding with Ali, Sami, and Raed. Today&#8217;s daily (Jun 15) kicked off Month 2 planning: multi-location support, landing page updates, and native payment gateways.</p>
+    <span class="status"><span class="es">&#9679; En camino &#8212; lanzamiento mar 16 jun</span><span class="en">&#9679; On Track &#8212; launching Tue Jun 16</span></span>
+    <p class="es">El Sprint 2 alcanzó el <b>96% de completación</b> (27/28 historias en Ready for UAT). La falla de carga de mapas detectada el 12 jun fue <b>resuelta ese mismo día</b> — todas las funcionalidades están confirmadas y operativas en producción. El equipo realizó un cierre excepcional: <b>9 historias a Ready for UAT en un solo día</b> (viernes 12 jun). El único ítem activo del sprint es ENTR-99 (soporte multi-branch). Lanzamiento para el equipo de Ali agendado para mañana, <b>martes 16 de junio</b>.</p>
+    <p class="en">Sprint 2 reached <b>96% completion</b> (27/28 stories in Ready for UAT). The map loading failure detected on Jun 12 was <b>resolved that same day</b> — all features are confirmed and live in production. The team delivered an exceptional final push: <b>9 stories to Ready for UAT in a single day</b> (Friday Jun 12). The only active sprint item is ENTR-99 (multi-branch support). Launch for Ali's team is scheduled for tomorrow, <b>Tuesday Jun 16</b>.</p>
     <ul>
-      <li class="es"><b>Entregado:</b> Sprint 2 al 96%, 6 ítems restantes completados el 12 jun, bloqueo de mapas resuelto el mismo día, producción verificada y lista.</li>
-      <li class="en"><b>Delivered:</b> Sprint 2 at 96%, 6 remaining items completed Jun 12, map blocker resolved same day, production verified and ready.</li>
-      <li class="es"><b>En curso (Mes 2):</b> soporte de múltiples ubicaciones (máx. 3 por adquisición), actualización de landing page con sección de oportunidades, investigación de pines múltiples en mapas.</li>
-      <li class="en"><b>In progress (Month 2):</b> multi-location support (max 3 per acquisition), landing page update with opportunities section, multiple map pins research.</li>
-      <li class="es"><b>Sin riesgos activos:</b> todos los bloqueos de la semana se resolvieron el 12 jun. Solo pendiente: visto bueno de Ali en la traducción árabe.</li>
-      <li class="en"><b>No active risks:</b> all blockers from the week resolved on Jun 12. Only outstanding: Ali&#8217;s sign-off on Arabic translation.</li>
-      <li class="es"><b>Atención:</b> Ali confirmó que el equipo de producción será <b>solo él, Sami y Raed</b>. Auth0 completado. Invitaciones del lunes listas para enviar.</li>
-      <li class="en"><b>Heads-up:</b> Ali confirmed the production team will be <b>just him, Sami, and Raed</b>. Auth0 completed. Monday invitations are ready to send.</li>
+      <li class="es"><b>Entregado:</b> 9 historias a Ready for UAT el 12 jun; todos los cambios verificados y funcionando en producción. Sprint 2 al 96%.</li>
+      <li class="en"><b>Delivered:</b> 9 stories to Ready for UAT on Jun 12; all changes verified and working in production. Sprint 2 at 96%.</li>
+      <li class="es"><b>En progreso:</b> ENTR-99 — soporte multi-branch para listings de Full Business (Rodrigo, activo hoy).</li>
+      <li class="en"><b>In progress:</b> ENTR-99 — multi-branch support for Full Business listings (Rodrigo, active today).</li>
+      <li class="es"><b>Riesgo principal:</b> Falla de carga de mapas &#8212; <b style="color:var(--green)">RESUELTO</b> el 12 jun. Sin bloqueos activos para el lanzamiento.</li>
+      <li class="en"><b>Main risk:</b> Map loading failure &#8212; <b style="color:var(--green)">RESOLVED</b> Jun 12. No active blockers for the launch.</li>
+      <li class="es"><b>Atención:</b> Ali confirmó que el equipo de producción será <b>solo él, Sami y Raed</b>. Daily del 15 jun inició planificación de Sprint 3: múltiples ubicaciones, pasarelas de pago nativas, actualización de landing.</li>
+      <li class="en"><b>Heads-up:</b> Ali confirmed the production team will be <b>just him, Sami and Raed</b>. Jun 15 daily kicked off Sprint 3 planning: multiple locations, native payment gateways, landing page update.</li>
     </ul>
   </div>
 
@@ -136,16 +134,16 @@
   <div class="kpis">
     <div class="kpi big"><div class="n">96%</div><div class="l"><span class="es">Sprint 2 completado</span><span class="en">Sprint 2 complete</span></div></div>
     <div class="kpi"><div class="n">27 / 28</div><div class="l"><span class="es">Historias listas (UAT)</span><span class="en">Stories done (UAT)</span></div></div>
-    <div class="kpi"><div class="n">0</div><div class="l"><span class="es">En progreso</span><span class="en">In progress</span></div></div>
-    <div class="kpi"><div class="n">1</div><div class="l"><span class="es">Diferida (Mes 2)</span><span class="en">Deferred (Month 2)</span></div></div>
-    <div class="kpi"><div class="n"><span class="es">Lun 16</span><span class="en">Mon 16</span></div><div class="l"><span class="es">Deadline producción</span><span class="en">Production deadline</span></div></div>
+    <div class="kpi"><div class="n">1</div><div class="l"><span class="es">En progreso</span><span class="en">In progress</span></div></div>
+    <div class="kpi"><div class="n">0</div><div class="l"><span class="es">Por hacer</span><span class="en">To do</span></div></div>
+    <div class="kpi"><div class="n"><span class="es">Mar 16</span><span class="en">Tue 16</span></div><div class="l"><span class="es">Lanzamiento producción</span><span class="en">Production launch</span></div></div>
   </div>
 
   <!-- ============ BARRAS DE PROGRESO ============ -->
   <h2 class="sec"><span class="es">&#128202; Nivel de ejecución por frente de trabajo</span><span class="en">&#128202; Execution level by workstream</span></h2>
   <div class="card">
     <div class="bar-row">
-      <div class="top"><span><span class="es">Sprint 2 &#8212; avance global (27/28 historias en Ready for UAT)</span><span class="en">Sprint 2 &#8212; overall progress (27/28 stories in Ready for UAT)</span></span><span class="pct">96%</span></div>
+      <div class="top"><span><span class="es">Sprint 2 &#8212; avance global (27/28 historias en UAT)</span><span class="en">Sprint 2 &#8212; overall progress (27/28 stories in UAT)</span></span><span class="pct">96%</span></div>
       <div class="track"><div class="fill g" style="width:96%"></div></div>
     </div>
     <div class="bar-row">
@@ -153,7 +151,7 @@
       <div class="track"><div class="fill g" style="width:100%"></div></div>
     </div>
     <div class="bar-row">
-      <div class="top"><span><span class="es">Localización / Árabe (pendiente OK de Ali)</span><span class="en">Localization / Arabic (awaiting Ali&#8217;s OK)</span></span><span class="pct">100%</span></div>
+      <div class="top"><span><span class="es">Localización / Árabe</span><span class="en">Localization / Arabic</span></span><span class="pct">100%</span></div>
       <div class="track"><div class="fill g" style="width:100%"></div></div>
     </div>
     <div class="bar-row">
@@ -188,7 +186,7 @@
     <div class="grp">
       <div class="grp-head">
         <span class="chip done"><span class="es">&#10003; Hecho</span><span class="en">&#10003; Done</span></span>
-        <span class="count"><span class="es">27 historias en Ready for UAT &middot; <b>6 completadas esta semana</b></span><span class="en">27 stories in Ready for UAT &middot; <b>6 completed this week</b></span></span>
+        <span class="count"><span class="es">27 historias en Ready for UAT</span><span class="en">27 stories in Ready for UAT</span></span>
       </div>
       <table>
         <thead>
@@ -200,33 +198,33 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td><span class="es"><b>Indicador de moneda SAR</b> en todos los campos monetarios del listing <span class="new-tag">&#8593; Esta semana</span></span><span class="en"><b>SAR currency indicator</b> on all monetary listing fields <span class="new-tag">&#8593; This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-77</td></tr>
-          <tr><td><span class="es">Etiqueta &#8220;Utilities&#8221; &#8594; <b>&#8220;Utilities per month&#8221;</b> <span class="new-tag">&#8593; Esta semana</span></span><span class="en">&#8220;Utilities&#8221; label &#8594; <b>&#8220;Utilities per month&#8221;</b> <span class="new-tag">&#8593; This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-78</td></tr>
-          <tr><td><span class="es">Reemplazar signo $ con el <b>indicador oficial SAR</b> <span class="new-tag">&#8593; Esta semana</span></span><span class="en">Replace dollar sign ($) with the official <b>SAR indicator</b> <span class="new-tag">&#8593; This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-89</td></tr>
-          <tr><td><span class="es">Revenue condicional en <b>Investment Opportunity</b> <span class="new-tag">&#8593; Esta semana</span></span><span class="en">Conditional revenue display in <b>Investment Opportunity</b> <span class="new-tag">&#8593; This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-98</td></tr>
-          <tr><td><span class="es"><b>Pitch</b> como video, PDF o PowerPoint en Investment <span class="new-tag">&#8593; Esta semana</span></span><span class="en"><b>Pitch</b> upload as video, PDF, or PowerPoint <span class="new-tag">&#8593; This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-100</td></tr>
-          <tr><td><span class="es">Campo opcional de <b>brochure corporativo</b> en documentos del listing <span class="new-tag">&#8593; Esta semana</span></span><span class="en">Optional <b>company brochure</b> field in listing documents <span class="new-tag">&#8593; This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-101</td></tr>
-          <tr><td><span class="es"><b>Dashboard de métricas</b> &#8212; 3 gráficos faltantes (confirmado por el equipo)</span><span class="en"><b>Metrics dashboard</b> &#8212; 3 missing charts (confirmed by team)</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-9</td></tr>
+          <tr><td><span class="es"><b>Dashboard de métricas</b> &#8212; 3 gráficos faltantes (confirmado por el equipo)</span><span class="en"><b>Metrics Dashboard</b> &#8212; 3 missing charts (confirmed by team)</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-9</td></tr>
           <tr><td><span class="es"><b>Landing Page</b> waitlist con captura de email</span><span class="en"><b>Landing Page</b> waitlist with email capture</span></td><td>Andrés</td><td>Sprint Planning</td><td class="ref">ENTR-13</td></tr>
-          <tr><td><span class="es"><b>Infraestructura de producción</b> &#8212; entorno activo</span><span class="en"><b>Production infrastructure</b> &#8212; environment live</span></td><td>Andrés</td><td>Daily + DM</td><td class="ref">ENTR-50</td></tr>
-          <tr><td><span class="es"><b>Feedback 01</b> consolidado del testing de Ali (8 jun)</span><span class="en"><b>Feedback 01</b> consolidated from Ali&#8217;s testing (Jun 8)</span></td><td>Rodrigo</td><td>Daily (Jun 3)</td><td class="ref">ENTR-51</td></tr>
-          <tr><td><span class="es">BUG &#8212; spinner del botón de login se renderiza mal</span><span class="en">BUG &#8212; login button loading spinner renders incorrectly</span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-64</td></tr>
-          <tr><td><span class="es">BUG &#8212; tipo de rol &#8220;Client account&#8221; no debe existir</span><span class="en">BUG &#8212; &#8220;Client account&#8221; role type should not exist</span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-65</td></tr>
+          <tr><td><span class="es"><b>Infraestructura de producción</b> &#8212; entorno activo</span><span class="en"><b>Production infrastructure</b> &#8212; environment live</span></td><td>Andrés</td><td>Daily EC</td><td class="ref">ENTR-50</td></tr>
+          <tr><td><span class="es"><b>Feedback 01</b> &#8212; cambios consolidados del testing de Ali (8 jun)</span><span class="en"><b>Feedback 01</b> &#8212; consolidated changes from Ali&#8217;s Jun 8 testing</span></td><td>Rodrigo</td><td>Daily EC (Jun 3)</td><td class="ref">ENTR-51</td></tr>
+          <tr><td><span class="es">BUG &#8212; spinner del botón de login renderiza incorrectamente<span class="tag">Esta semana</span></span><span class="en">BUG &#8212; login button loading spinner renders incorrectly<span class="tag">This week</span></span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-64</td></tr>
+          <tr><td><span class="es">BUG &#8212; tipo de rol "Client account" aparece en Create User</span><span class="en">BUG &#8212; "Client account" role type shown in Create User form</span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-65</td></tr>
           <tr><td><span class="es">BUG &#8212; timestamps de Log Activity muestran hora incorrecta</span><span class="en">BUG &#8212; Log Activity timestamps display incorrect time</span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-66</td></tr>
-          <tr><td><span class="es">Separar &#8220;Full Name&#8221; en <b>First Name + Last Name</b></span><span class="en">Split &#8220;Full Name&#8221; into <b>First Name + Last Name</b></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-70</td></tr>
-          <tr><td><span class="es">Selector de <b>país con auto-población</b> (Employees &amp; Buyers/Sellers)</span><span class="en"><b>Country selector with auto-population</b> (Employees &amp; Buyers/Sellers)</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-71</td></tr>
-          <tr><td><span class="es">Ocultar rol &#8220;Client&#8221; del módulo de Employees</span><span class="en">Hide &#8220;Client&#8221; role from the Employees module</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-73</td></tr>
-          <tr><td><span class="es">Campo <b>Headline Price</b> en el flujo de creación del listing</span><span class="en"><b>Headline Price</b> field in the listing creation flow</span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-79</td></tr>
+          <tr><td><span class="es">Separar "Full Name" en <b>First Name + Last Name</b></span><span class="en">Split "Full Name" into <b>First Name + Last Name</b></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-70</td></tr>
+          <tr><td><span class="es">Selector de <b>país con código auto-poblado</b> (Employees &amp; Buyers/Sellers)</span><span class="en"><b>Country selector with auto-populated country code</b> (Employees &amp; Buyers/Sellers)</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-71</td></tr>
+          <tr><td><span class="es">Ocultar usuarios tipo "Client" del módulo de Employees</span><span class="en">Hide "Client" role users from the Employees module</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-73</td></tr>
+          <tr><td><span class="es">Indicador <b>SAR</b> + separador de miles americano en campos monetarios<span class="tag">Esta semana</span></span><span class="en"><b>SAR indicator</b> + American comma-separator on all monetary fields<span class="tag">This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-77</td></tr>
+          <tr><td><span class="es">Etiqueta "Utilities" &#8594; <b>"Utilities per month"</b><span class="tag">Esta semana</span></span><span class="en">"Utilities" label &#8594; <b>"Utilities per month"</b><span class="tag">This week</span></span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-78</td></tr>
+          <tr><td><span class="es">Campo <b>Headline Price</b> en el flujo de creación del listing</span><span class="en"><b>Headline Price</b> field in listing creation flow</span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-79</td></tr>
           <tr><td><span class="es"><b>Edición completa</b> de todos los campos y secciones del listing</span><span class="en"><b>Full editing</b> of all listing fields and sections</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-80</td></tr>
-          <tr><td><span class="es"><b>Log Activity</b>: zona horaria del timestamp + nombre de cliente real</span><span class="en"><b>Log Activity</b>: timestamp timezone + real client name in activity log</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-81</td></tr>
-          <tr><td><span class="es">SPIKE &#8212; opciones para editar email pese a identificador único de Auth0</span><span class="en">SPIKE &#8212; investigate options to edit user email despite Auth0 unique identifier</span></td><td>Andrés</td><td>Sprint Review</td><td class="ref">ENTR-83</td></tr>
-          <tr><td><span class="es">SPIKE &#8212; proveedor de mapas para &#8220;pin location&#8221; (AWS Location Services)</span><span class="en">SPIKE &#8212; map provider investigation for &#8220;pin location&#8221; (AWS Location Services)</span></td><td>Andrés</td><td>Sprint Review</td><td class="ref">ENTR-85</td></tr>
-          <tr><td><span class="es"><b>Pin location</b> en mapa con autocompletado de dirección</span><span class="en"><b>Pin location</b> on map with address auto-fill</span></td><td>Rodrigo</td><td>Daily (Jun 8)</td><td class="ref">ENTR-86</td></tr>
-          <tr><td><span class="es"><b>PostHog</b>: session replay + captura de eventos (landing + admin panel)</span><span class="en"><b>PostHog</b>: session replay + event capture (landing + admin panel)</span></td><td>Andrés</td><td>Daily + Sprint</td><td class="ref">ENTR-88</td></tr>
-          <tr><td><span class="es">Autocompletar <b>nombre completo del seller</b> en el formulario del listing</span><span class="en">Auto-fill <b>seller&#8217;s full name</b> in the listing form</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-90</td></tr>
-          <tr><td><span class="es">Capturar <b>cantidad y condición por activo</b> en Full Business</span><span class="en">Capture <b>quantity &amp; condition per asset</b> in Full Business</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-91</td></tr>
+          <tr><td><span class="es"><b>Log Activity</b>: timezone de Arabia Saudita + IP real del cliente</span><span class="en"><b>Log Activity</b>: Saudi Arabia timezone + real client IP</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-81</td></tr>
+          <tr><td><span class="es">SPIKE &#8212; opciones para editar email de usuario pese al identificador único de Auth0<span class="tag">Esta semana</span></span><span class="en">SPIKE &#8212; options to edit user email despite Auth0 unique-identifier constraint<span class="tag">This week</span></span></td><td>Andrés</td><td>Sprint Review</td><td class="ref">ENTR-83</td></tr>
+          <tr><td><span class="es">SPIKE &#8212; proveedor de mapas para pin location (AWS Location Services)</span><span class="en">SPIKE &#8212; map provider investigation for pin location (AWS Location Services)</span></td><td>Andrés</td><td>Sprint Review</td><td class="ref">ENTR-85</td></tr>
+          <tr><td><span class="es"><b>Pin location</b> en mapa con autocompletado de dirección</span><span class="en"><b>Pin location</b> on map with address auto-fill</span></td><td>Rodrigo</td><td>Daily EC</td><td class="ref">ENTR-86</td></tr>
+          <tr><td><span class="es"><b>PostHog</b>: session replay + captura de eventos (landing + admin panel)<span class="tag">Esta semana</span></span><span class="en"><b>PostHog</b>: session replay + event capture (landing + admin panel)<span class="tag">This week</span></span></td><td>Andrés</td><td>Daily EC</td><td class="ref">ENTR-88</td></tr>
+          <tr><td><span class="es">Reemplazar $ con <b>indicador oficial SAR</b> + formato de miles americano<span class="tag">Esta semana</span></span><span class="en">Replace dollar sign ($) with official <b>SAR indicator</b> + American thousands format<span class="tag">This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-89</td></tr>
+          <tr><td><span class="es">Autocompletar <b>nombre completo del seller</b> en User Information del listing</span><span class="en">Auto-fill <b>seller&#8217;s full name</b> in listing User Information step</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-90</td></tr>
+          <tr><td><span class="es">Capturar <b>cantidad y condición por activo</b> en flujo Full Business</span><span class="en">Capture <b>quantity &amp; condition per asset</b> in Full Business listing flow</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-91</td></tr>
           <tr><td><span class="es">Vista de listing en <b>solo lectura</b></span><span class="en"><b>Read-only</b> listing detail view</span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-92</td></tr>
-          <tr><td><span class="es">Bloquear creación de seller con <b>teléfono ya registrado</b></span><span class="en">Block creating a seller with an <b>already-registered phone number</b></span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-95</td></tr>
+          <tr><td><span class="es">Bloquear creación de seller con <b>número de teléfono ya registrado</b></span><span class="en">Block creating a seller with an <b>already-registered phone number</b></span></td><td>Rodrigo</td><td>Feedback Ali</td><td class="ref">ENTR-95</td></tr>
+          <tr><td><span class="es">Revenue condicional en <b>Investment Opportunity</b> (según estado de rentabilidad)<span class="tag">Esta semana</span></span><span class="en">Conditional revenue display in <b>Investment Opportunity</b> (by profitability status)<span class="tag">This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-98</td></tr>
+          <tr><td><span class="es"><b>Pitch</b> como video, PDF o PowerPoint en Investment Opportunity<span class="tag">Esta semana</span></span><span class="en"><b>Pitch</b> upload as video, PDF, or PowerPoint in Investment Opportunity<span class="tag">This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-100</td></tr>
+          <tr><td><span class="es">Campo opcional de <b>brochure corporativo</b> en documentos del listing<span class="tag">Esta semana</span></span><span class="en">Optional <b>company brochure</b> field in listing documents<span class="tag">This week</span></span></td><td>Rodrigo</td><td>Sprint Planning</td><td class="ref">ENTR-101</td></tr>
         </tbody>
       </table>
     </div>
@@ -235,33 +233,33 @@
     <div class="grp">
       <div class="grp-head">
         <span class="chip prog"><span class="es">&#9680; En progreso</span><span class="en">&#9680; In progress</span></span>
-        <span class="count"><span class="es">0 historias en desarrollo activo</span><span class="en">0 stories actively in development</span></span>
-      </div>
-      <p style="font-size:14px;color:var(--muted);margin:8px 12px">
-        <span class="es">&#10003; No hay historias en progreso &#8212; todas las del sprint están en Ready for UAT. El equipo está iniciando la planificación del Mes 2.</span>
-        <span class="en">&#10003; No stories in progress &#8212; all sprint stories are in Ready for UAT. Team is beginning Month 2 planning.</span>
-      </p>
-    </div>
-
-    <!-- DEFERRED / TO DO -->
-    <div class="grp">
-      <div class="grp-head">
-        <span class="chip defer"><span class="es">&#9675; Diferida &#8212; Mes 2</span><span class="en">&#9675; Deferred &#8212; Month 2</span></span>
-        <span class="count"><span class="es">1 historia diferida por estabilidad del sistema</span><span class="en">1 story deferred for system stability</span></span>
+        <span class="count"><span class="es">1 historia activa</span><span class="en">1 active story</span></span>
       </div>
       <table>
         <thead>
           <tr>
             <th><span class="es">Compromiso / acuerdo</span><span class="en">Commitment / agreement</span></th>
             <th><span class="es">Responsable</span><span class="en">Owner</span></th>
-            <th><span class="es">Origen</span><span class="en">Source</span></th>
+            <th><span class="es">Estado</span><span class="en">Status</span></th>
             <th>Jira</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><span class="es">Soporte <b>multi-sucursal</b> en listings de Full Business (UI dinámica por cantidad de sucursales) &#8212; diferido para garantizar estabilidad del MVP</span><span class="en"><b>Multi-branch support</b> for Full Business listings (dynamic UI by branch count) &#8212; deferred to ensure MVP stability</span></td><td>Rodrigo</td><td>Daily (Jun 12)</td><td class="ref">ENTR-99</td></tr>
+          <tr><td><span class="es">Soporte de <b>múltiples sucursales</b> para listings de Full Business (UI dinámica por cantidad de branches) &#8212; acordado Daily EC 15 jun</span><span class="en"><b>Multi-branch support</b> for Full Business listings (dynamic UI by branch count) &#8212; agreed Daily EC Jun 15</span></td><td>Rodrigo</td><td><span class="es">En desarrollo</span><span class="en">In Development</span></td><td class="ref">ENTR-99</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <!-- PENDING -->
+    <div class="grp">
+      <div class="grp-head">
+        <span class="chip todo"><span class="es">&#9675; Pendiente</span><span class="en">&#9675; To do</span></span>
+        <span class="count"><span class="es">0 historias pendientes</span><span class="en">0 stories to do</span></span>
+      </div>
+      <p style="font-size:14px;color:var(--muted);margin:8px 12px">
+        <span class="es">&#10003; No hay historias pendientes en el sprint &#8212; todas están en UAT o en desarrollo activo.</span>
+        <span class="en">&#10003; No pending stories in the sprint &#8212; all are either in Ready for UAT or in active development.</span>
+      </p>
     </div>
 
   </div>
@@ -270,28 +268,28 @@
   <h2 class="sec"><span class="es">&#9989; Lo que se entregó esta semana</span><span class="en">&#9989; Delivered this week</span></h2>
   <div class="card">
     <div class="win">
-      <span class="es"><b>6 historias restantes completadas el 12 jun</b> &#8212; ENTR-77, 78, 89, 98, 100, 101 pasaron a Ready for UAT: indicadores SAR, revenue condicional, pitch como video/PDF/PPT y campo de brochure corporativo. El sprint 2 cierra al 96%. <em>(Fuente: Jira)</em></span>
-      <span class="en"><b>6 remaining stories completed Jun 12</b> &#8212; ENTR-77, 78, 89, 98, 100, 101 moved to Ready for UAT: SAR indicators, conditional revenue, pitch as video/PDF/PPT, and company brochure field. Sprint 2 closes at 96%. <em>(Source: Jira)</em></span>
+      <span class="es"><b>Todos los cambios validados en producción</b> &#8212; el equipo confirmó el 12 jun: "we&#8217;ve finished everything and all the changes are also working in prod." Producción estable y lista para el lanzamiento del martes. <em>(Fuente: Slack #ec-vibes, 12 jun)</em></span>
+      <span class="en"><b>All changes validated in production</b> &#8212; team confirmed Jun 12: &#8220;we&#8217;ve finished everything and all the changes are also working in prod.&#8221; Production is stable and launch-ready for Tuesday. <em>(Source: Slack #ec-vibes, Jun 12)</em></span>
     </div>
     <div class="win">
-      <span class="es"><b>Falla de carga de mapas en producción &#8212; resuelta el 12 jun</b>: detectada a la 1pm, Andrés identificó el problema (variable de entorno) y lo resolvió el mismo día. Rodrigo confirmó que funciona correctamente en local y en desarrollo. Todas las secciones (full business, location, assets) operativas en prod al final del día. <em>(Fuente: Slack #ec-vibes, 12 jun)</em></span>
-      <span class="en"><b>Map loading failure in production &#8212; resolved Jun 12</b>: detected at 1pm, Andrés identified the issue (environment variable) and resolved it the same day. Rodrigo confirmed working correctly in local and dev. All sections (full business, location, assets) operational in prod by end of day. <em>(Source: Slack #ec-vibes, Jun 12)</em></span>
+      <span class="es"><b>9 historias a Ready for UAT en un solo día</b> (12 jun) &#8212; ENTR-64, 77, 78, 83, 88, 89, 98, 100, 101. Sprint 2 pasó del 78% al 96% en 24 horas. <em>(Fuente: Jira)</em></span>
+      <span class="en"><b>9 stories moved to Ready for UAT in a single day</b> (Jun 12) &#8212; ENTR-64, 77, 78, 83, 88, 89, 98, 100, 101. Sprint 2 went from 78% to 96% in 24 hours. <em>(Source: Jira)</em></span>
     </div>
     <div class="win">
-      <span class="es"><b>Producción completamente verificada</b> &#8212; todos los cambios funcionando en producción. El equipo corrió los tests finales en la noche del 12 jun. Listo para invitar a los usuarios el lunes 16. <em>(Fuente: Slack #ec-vibes, Julian Nieto, 12 jun)</em></span>
-      <span class="en"><b>Production fully verified</b> &#8212; all changes working in production. Team ran final tests on the evening of Jun 12. Ready to invite users on Monday Jun 16. <em>(Source: Slack #ec-vibes, Julian Nieto, Jun 12)</em></span>
+      <span class="es"><b>Falla de mapas resuelta</b> &#8212; carga de mapas en producción (secciones full business, location y assets) detectada y solucionada el 12 jun por Andrés (variable de entorno). Sin impacto en el cronograma. <em>(Fuente: Slack #ec-vibes, 12 jun)</em></span>
+      <span class="en"><b>Map loading failure resolved</b> &#8212; map loading in production (full business, location, assets sections) detected and fixed Jun 12 by Andrés (environment variable). No schedule impact. <em>(Source: Slack #ec-vibes, Jun 12)</em></span>
     </div>
     <div class="win">
-      <span class="es"><b>Todos los 34 ítems de feedback de Ali cerrados</b> &#8212; los 7 ítems que quedaban pendientes se completaron el 12 jun junto con el resto del sprint. <em>(Fuente: notas manuales)</em></span>
-      <span class="en"><b>All 34 Ali feedback items closed</b> &#8212; the 7 remaining items were completed on Jun 12 along with the rest of the sprint. <em>(Source: manual notes)</em></span>
+      <span class="es"><b>Admin Panel &#8212; Listings &amp; flujos al 100%</b>: edición completa de campos, vista de solo lectura, Headline Price, campos de activos por unidad, autocompletado de seller, bloqueo de teléfono duplicado, indicador SAR, pitches y brochures. <em>(Jira: ENTR-77 a ENTR-101)</em></span>
+      <span class="en"><b>Admin Panel &#8212; Listings &amp; flows at 100%</b>: full field editing, read-only view, Headline Price, per-asset fields, seller name auto-fill, duplicate phone block, SAR currency indicator, pitches and brochures. <em>(Jira: ENTR-77 to ENTR-101)</em></span>
     </div>
     <div class="win">
-      <span class="es"><b>Solicitud de verificación de dominio enviada a Ali</b> &#8212; Julian solicitó a Ali verificar el email del dominio para el setup de correo en producción. <em>(Fuente: Basecamp, 12 jun)</em></span>
-      <span class="en"><b>Domain verification request sent to Ali</b> &#8212; Julian asked Ali to verify the domain email for production email setup. <em>(Source: Basecamp, Jun 12)</em></span>
+      <span class="es"><b>Localización árabe al 100%</b> &#8212; interfaz completamente traducida en admin panel y landing page. Pendiente confirmación final de Ali. <em>(Fuente: notas manuales)</em></span>
+      <span class="en"><b>Arabic localization at 100%</b> &#8212; interface fully translated on admin panel and landing page. Awaiting Ali&#8217;s final confirmation. <em>(Source: manual notes)</em></span>
     </div>
     <div class="win">
-      <span class="es"><b>Inicio de planificación del Mes 2</b> &#8212; daily del 15 jun: decisiones sobre soporte multi-ubicación (máx. 3 por adquisición), sin carrusel en landing, pasarelas de pago nativas para iOS/Android, e investigación de pines múltiples en mapas. <em>(Fuente: Gmail &#8212; Daily EC, 15 jun)</em></span>
-      <span class="en"><b>Month 2 planning kicked off</b> &#8212; Jun 15 daily: decisions on multi-location support (max 3 per acquisition), no user carousel on landing, native payment gateways for iOS/Android, and multiple map pins research. <em>(Source: Gmail &#8212; Daily EC, Jun 15)</em></span>
+      <span class="es"><b>34/34 ítems de feedback de Ali cerrados</b> &#8212; ciclo completo de feedback del cliente resuelto antes del lanzamiento. <em>(Fuente: Slack #ec-vibes, 12 jun)</em></span>
+      <span class="en"><b>34/34 Ali feedback items closed</b> &#8212; complete client feedback cycle resolved before launch. <em>(Source: Slack #ec-vibes, Jun 12)</em></span>
     </div>
   </div>
 
@@ -313,7 +311,7 @@
           <td><span class="ext-done"><span class="es">&#10003; Confirmado &#8212; solo Ali, Sami y Raed (confirmado por el equipo)</span><span class="en">&#10003; Confirmed &#8212; Ali, Sami &amp; Raed only (confirmed by team)</span></span></td>
         </tr>
         <tr>
-          <td><span class="es">Upgrade de Auth0 a plan Essentials ($35/mes)</span><span class="en">Auth0 upgrade to Essentials plan ($35/mo)</span></td>
+          <td><span class="es">Upgrade de Auth0 al plan Essentials</span><span class="en">Auth0 upgrade to Essentials plan</span></td>
           <td>Ali</td>
           <td><span class="ext-done"><span class="es">&#10003; Completado</span><span class="en">&#10003; Completed</span></span></td>
         </tr>
@@ -328,9 +326,9 @@
           <td><span class="ext-pending"><span class="es">&#10003; Completado &#8212; pendiente OK final de Ali</span><span class="en">&#10003; Completed &#8212; awaiting Ali&#8217;s final OK</span></span></td>
         </tr>
         <tr>
-          <td><span class="es">Verificación de email del dominio para producción</span><span class="en">Domain email verification for production</span></td>
-          <td>Ali</td>
-          <td><span class="ext-pending"><span class="es">&#8987; Solicitado el 12 jun &#8212; pendiente confirmación de Ali</span><span class="en">&#8987; Requested Jun 12 &#8212; awaiting Ali&#8217;s confirmation</span></span></td>
+          <td><span class="es">Invitación al portal administrativo (Ali, Sami, Raed) &#8212; acordado en Daily 15 jun</span><span class="en">Admin portal invitation (Ali, Sami, Raed) &#8212; agreed in Daily Jun 15</span></td>
+          <td><span class="es">Equipo</span><span class="en">Team</span></td>
+          <td><span class="ext-pending"><span class="es">&#9679; Pendiente &#8212; agendado para hoy lun 15 jun</span><span class="en">&#9679; Pending &#8212; scheduled for today Mon Jun 15</span></span></td>
         </tr>
       </tbody>
     </table>
@@ -342,57 +340,44 @@
 
     <div class="resolved">
       <p>
-        <span class="es"><b>&#10003; RESUELTO &#8212; Falla de carga de mapas en producción</b> &#8212; las secciones full business, location y assets fallaban al cargar los mapas. Detectado el 12 jun a la 1pm. Andrés identificó el problema (variable de entorno faltante) y lo resolvió el mismo día. Rodrigo verificó que el fix funciona correctamente. Todas las secciones operativas en prod al cierre del día. <em>(Fuente: Gmail &#8212; Daily EC 12 jun; Slack #ec-vibes, 12 jun)</em></span>
-        <span class="en"><b>&#10003; RESOLVED &#8212; Map loading failure in production</b> &#8212; full business, location, and assets sections were failing to load maps. Detected Jun 12 at 1pm. Andrés identified the issue (missing environment variable) and resolved it the same day. Rodrigo verified the fix works correctly. All sections operational in prod by end of day. <em>(Source: Gmail &#8212; Daily EC Jun 12; Slack #ec-vibes, Jun 12)</em></span>
+        <span class="es"><b>&#10003; RESUELTO &#8212; Falla de carga de mapas en producción</b> (full business, location y assets). Detectada el 12 jun; Rodrigo y Andrés investigaron — Andrés identificó y corrigió una variable de entorno faltante ese mismo día. Sin impacto en el lanzamiento. <em>(Fuente: Daily EC + Slack #ec-vibes, 12 jun)</em></span>
+        <span class="en"><b>&#10003; RESOLVED &#8212; Map loading failure in production</b> (full business, location, assets sections). Detected Jun 12; Rodrigo and Andrés investigated — Andrés identified and fixed a missing environment variable that same day. No impact on launch timeline. <em>(Source: Daily EC + Slack #ec-vibes, Jun 12)</em></span>
       </p>
     </div>
 
     <div class="resolved">
       <p>
-        <span class="es"><b>&#10003; RESUELTO &#8212; 7 ítems de feedback pendientes</b> &#8212; meta: cerrarlos al EOD del 12 jun. Confirmado: todos cerrados ese mismo día. Sprint 2 cerró con 0 ítems pendientes en feedback. <em>(Fuente: notas manuales; Jira)</em></span>
-        <span class="en"><b>&#10003; RESOLVED &#8212; 7 feedback items pending</b> &#8212; goal: close them all by EOD Jun 12. Confirmed: all closed that same day. Sprint 2 closed with 0 pending feedback items. <em>(Source: manual notes; Jira)</em></span>
+        <span class="es"><b>&#10003; RESUELTO &#8212; 7 ítems de feedback pendientes</b>. Meta: cerrar todos al EOD del 12 jun. Julian confirmó el cierre ese mismo día. Total acumulado: 34/34 ítems cerrados. <em>(Fuente: Slack #ec-vibes, 12 jun)</em></span>
+        <span class="en"><b>&#10003; RESOLVED &#8212; 7 pending feedback items</b>. Target: close all by EOD Jun 12. Julian confirmed closure that same day. Total: 34/34 items closed. <em>(Source: Slack #ec-vibes, Jun 12)</em></span>
       </p>
     </div>
 
     <div class="resolved">
       <p>
-        <span class="es"><b>&#10003; RESUELTO &#8212; Bloqueo temporal por verificación de correo de Ali</b> &#8212; se produjo un retraso de aproximadamente 1 hora porque faltaba completar la verificación de correo de Ali. Se solucionó y se retomó el trabajo sin mayor impacto. <em>(Fuente: notas manuales)</em></span>
-        <span class="en"><b>&#10003; RESOLVED &#8212; Temporary blocker due to Ali&#8217;s email verification</b> &#8212; a ~1 hour delay occurred because Ali&#8217;s email verification had not been completed. Resolved quickly with no significant impact on delivery. <em>(Source: manual notes)</em></span>
+        <span class="es"><b>&#10003; RESUELTO &#8212; Verificación de correo de Ali</b> (~1 hora de bloqueo el 12 jun): se necesitaba verificar el dominio en producción. Ali completó la verificación; trabajo retomado sin impacto mayor en el cronograma. <em>(Fuente: Basecamp, 12 jun)</em></span>
+        <span class="en"><b>&#10003; RESOLVED &#8212; Ali&#8217;s email domain verification</b> (~1 hour delay on Jun 12): production domain verification was pending. Ali completed it; work resumed with no major schedule impact. <em>(Source: Basecamp, Jun 12)</em></span>
       </p>
     </div>
 
-    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
-      <p style="font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin:0 0 10px">
-        <span class="es">&#128336; Próximos pasos (Mes 2) &#8212; Daily 15 jun</span>
-        <span class="en">&#128336; Next steps (Month 2) &#8212; Daily Jun 15</span>
+    <div class="upcoming">
+      <p>
+        <span class="es"><b>&#128336; ENTR-99 &#8212; Multi-branch en desarrollo</b>: soporte de hasta 3 sucursales para listings de Full Business. Rodrigo trabajando activamente hoy (15 jun). Implementación de ubicaciones múltiples pospu de producción para garantizar estabilidad del lanzamiento; incluido en Sprint 3. <em>(Fuente: Daily EC 15 jun + Jira)</em></span>
+        <span class="en"><b>&#128336; ENTR-99 &#8212; Multi-branch in development</b>: support for up to 3 branch locations in Full Business listings. Rodrigo actively working on it today (Jun 15). Multiple locations deferred from the core production launch to ensure stability; included in Sprint 3. <em>(Source: Daily EC Jun 15 + Jira)</em></span>
       </p>
-      <div class="next-step">
-        <span class="es"><b>[Rodrigo]</b> Implementar soporte de hasta 3 ubicaciones por adquisición y desarrollar la funcionalidad para múltiples marcadores en el mapa.</span>
-        <span class="en"><b>[Rodrigo]</b> Implement up to 3 locations per acquisition flow and develop multiple map markers functionality.</span>
-      </div>
-      <div class="next-step">
-        <span class="es"><b>[Julian]</b> Compartir a Andrés el documento con los textos actualizados y capturas de pantalla para la nueva sección de oportunidades en la landing.</span>
-        <span class="en"><b>[Julian]</b> Share to Andrés the document with updated texts and screenshots for the new opportunities section on the landing page.</span>
-      </div>
-      <div class="next-step">
-        <span class="es"><b>[Andrés]</b> Integrar la nueva sección de oportunidades personalizadas en la landing y ajustar el contenido conforme a los requerimientos legales recibidos.</span>
-        <span class="en"><b>[Andrés]</b> Integrate the new personalized opportunities section into the landing page and adjust content per legal requirements.</span>
-      </div>
-      <div class="next-step">
-        <span class="es"><b>[Rodrigo]</b> Investigar la capacidad de la librería de mapas para soportar múltiples pines y comunicar resultados al equipo durante el día.</span>
-        <span class="en"><b>[Rodrigo]</b> Research the map library&#8217;s ability to support multiple pins and communicate findings to the team during the day.</span>
-      </div>
-      <div class="next-step">
-        <span class="es"><b>[Equipo]</b> Enviar invitación de acceso al portal administrativo a Ali, Sami y Raed una vez finalizada la configuración. Solicitar la creación de listados reales durante las pruebas.</span>
-        <span class="en"><b>[Team]</b> Send admin portal access invitation to Ali, Sami, and Raed once configuration is complete. Request real listing creation during testing.</span>
-      </div>
+    </div>
+
+    <div class="upcoming">
+      <p>
+        <span class="es"><b>&#128336; Planificación de Sprint 3 iniciada</b> (Daily 15 jun) &#8212; ítems acordados para el próximo sprint: múltiples ubicaciones (hasta 3 por adquisición), investigación de pines múltiples en mapa, actualización de landing page (nueva sección de oportunidades + requisitos legales), pasarelas de pago nativas para iOS y Android. <em>(Fuente: Gmail &#8212; Daily EC, 15 jun)</em></span>
+        <span class="en"><b>&#128336; Sprint 3 planning started</b> (Daily Jun 15) &#8212; agreed items for the next sprint: multiple locations (up to 3 per acquisition), multi-pin map investigation, landing page update (new opportunities section + legal requirements), native payment gateways for iOS and Android. <em>(Source: Gmail &#8212; Daily EC, Jun 15)</em></span>
+      </p>
     </div>
 
   </div>
 
   <footer>
-    <span class="es">Designli &mdash; Generado automáticamente el lunes, 15 de junio de 2026</span>
-    <span class="en">Designli &mdash; Auto-generated on Monday, June 15, 2026</span>
+    <span class="es">Generado por Designli &middot; 15 de junio de 2026</span>
+    <span class="en">Generated by Designli &middot; June 15, 2026</span>
   </footer>
 
 </div>
@@ -401,9 +386,7 @@
 function setLang(l){
   document.body.className='lang-'+l;
   document.documentElement.lang=l;
-  document.querySelectorAll('.langtoggle button').forEach(function(b){
-    b.classList.toggle('active',b.dataset.l===l);
-  });
+  document.querySelectorAll('.langtoggle button').forEach(b=>b.classList.toggle('active',b.dataset.l===l));
 }
 </script>
 <script src="particles.js"></script>
